@@ -90,17 +90,77 @@ nav img{
 #oferta1{
     text-align: center;
 }
+#oferta1 h2{
+    padding: 40px 0;
+    font-weight: 700;
+    font-size: 30px;
+}
+.ofer-container{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    flex-wrap: wrap;
+    margin: 0px 100px;
+}
+
 #oferta1 .ofer{
-    width: 23%;
+    width: 20%;
     min-width: 250px;
     padding: 10px 12px;
-    border: 1px solid var(--color-secundario);
     border-radius: 25px;
     cursor: pointer;
-    box-shadow: 20px 20px 30px var(--color-secundario);
+    box-shadow: 10px 10px 40px var(--color-secundario);
+    margin: 15px 0;
+    transition: 0.2s ease;
+    position: relative;
+}
+
+#oferta1 .ofer:hover{
+    box-shadow: 10px 10px 40px #503908;
 }
 
 #oferta1 .ofer img{
     width: 100%;
     border-radius: 20px;
+}
+#oferta1 .ofer .des{
+    text-align: start;
+    padding: 10px 0;
+}
+#oferta1 .ofer .des span{
+    color: var(--color-secundario);
+    font-size: 12px;
+}
+#oferta1 .ofer .des h5{
+    padding-top: 7px;
+    color: black;
+    font-size: 15px;
+}
+.precio-ofer{
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+}
+#oferta1 .ofer .des h6{
+    padding-top: 5px;
+    padding-right: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: gray;
+}
+#oferta1 .ofer .des h4{
+    padding-top: 5px;
+    font-size: 25px;
+    font-weight: 700;
+    color: red;
+}
+.btnAgregarCarrito{
+    text-decoration: none;
+    display: block;
+    height: inherit;
+    margin-top: 5px;
+    background-color: red;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
 }
