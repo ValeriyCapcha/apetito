@@ -27,7 +27,8 @@ body{
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background: F5FAFA;
+    /*No se ejecutaba el color/lo cambie para que se distinga*/
+    background-color: #F1BD0E;
     z-index: 999;
     position: sticky;
     top: 0;
@@ -78,7 +79,8 @@ nav img{
 /*HEROOOOOOOOOOOO*/
 #hero{
     background-color: var(--color-primario);
-    height: 90vh;
+    /*Logo a la mitad*/
+    height: 45vh;
     width: 100%;
     background-size: cover;
     display: flex;
