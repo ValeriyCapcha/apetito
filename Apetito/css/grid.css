@@ -1,0 +1,39 @@
+.contenedor{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-gap: 20px;
+}
+.uno{
+    grid-column: 2;
+    grid-row: 2;
+}
+/*
+.dos{
+    vacio de momento
+}
+*/
+#header{
+    text-align: center;
+    grid-column: 1/3;
+    grid-row: 1;
+}
+.box {
+    border: 5px solid darkblue;
+    width: 175px;
+    height: 250px;
+}
+.max {
+  max-width: 75%;
+  font-size: 100%;
+}
+#producto .prod{
+    width: 10%;
+    min-width: 125px;
+    padding: 10px 12px;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 10px 10px 40px #C0C0FF;
+    margin: 15px 0;
+    transition: 0.2s ease;
+    position: relative;
+}
