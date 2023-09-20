@@ -166,3 +166,110 @@ nav img{
     border-radius: 10px;
     color: white;
 }
+
+
+/*sobre nosootros*/
+#sobre-nosotros{
+    height: 65vh;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sobre-nosotros img{
+    border-radius: 10px;
+    margin: 0 100px;
+    width: 400px;
+    height: auto;
+}
+
+.sobre-text{
+    width: 500px;
+    height: auto;
+}
+.sobre-text h2{
+    color: var(--color-primario);
+    font-size: 40px;
+}
+
+/*MISION Y VIOOOOOOOOOOOOOOOON*/
+#myv{
+    height: 50vh;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primario);
+}
+.mision{
+    width: 50%;
+    height: 20%;
+    text-align: center;
+}
+.vision{
+    width: 50%;
+    height: 20%;
+    text-align: center;
+}
+
+/*mapaaaaaaa*/
+#encuentranos{
+    text-align: center;
+}
+#encuentranos h2{
+    font-size: 50px;
+    color: var(--color-secundario);
+    padding: 40px 0;
+}
+#encuentranos gmp-map {
+    height: 50vh;
+  }
+
+  .line-footer{
+    color: black;
+    background-color: black;
+    height: 1.5px;
+    margin: 20px 0;;
+  }
+
+  /*foooooter*/
+  #footer{
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 20vh;
+    width: 100%;
+  }
+
+#footer h4{
+    font-size: 20px;
+}
+#footer .socials, .ubicacion, .horario{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    
+}
+#footer .socials{
+    text-align: start;
+}
+#footer img{
+    width: 40px;
+    height: auto;
+    margin: 0 10px 10px 0;
+}
+
+#footer a{
+    color: black;
+    text-decoration: none;
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+
+#footer .libro-reclamaciones-logo img{
+    width: 200px;
+    height: auto;
+}

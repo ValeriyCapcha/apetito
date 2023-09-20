@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>aPETito Pet Shop</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/maps.css">
     <link rel="icon" href="imgs/logopet.png" type="image/x-icon">
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApBy105pvU-QS_9GHahwhTEJDudhZe5SQ&callback=console.debug&libraries=maps,marker&v=beta">
+    </script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;400;500;800;900&display=swap');
     </style>
@@ -16,7 +20,7 @@
         <nav>
             <ul id="navbar">
                 <li><a class="active" href="">Ofertas</a></li>
-                <li><a href="">Productos</a></li>
+                <li><a href="Productos.html">Productos</a></li>
                 <li><a href="">Baño de mascotas</a></li>
                 <li><a href="">Nosotros</a></li>
                 <li><a href="">Encuentranos</a></li>
@@ -84,16 +88,54 @@
     </section>
 
     <section id="sobre-nosotros">
-
+        <img src="imgs/Tienda.jpeg" alt="">
+        <div class="sobre-text">
+            <h2>SOBRE NOSOTROS</h2>
+            <P>Apetito Pet Shop es una pequeña empresa que se dedica a la venta minorista de productos para
+                    mascotas, los cuales son alimentos, juguetes, correas y demás accesorios; además también se
+                    especializa en el cuidado y aseo de perros. La empresa abrió hace 3 años y ya cuenta con una
+                    cartera de clientes fidelizados.</P>
+        </div>
+    </section>
+    <section id="myv">
+        <div class="mision">
+            <h2>MISIÓN</h2>
+            <p>Brindar felicidad a las mascotas ofreciendo productos y servicios de calidad a través de una
+                buena atención al cliente, humanos y mascotas.</p>
+        </div>
+        <div class="vision">
+            <h2>VISIÓN</h2>
+            <p>Ser la empresa líder del mercado aumentando los servicios que se brindan en la empresa para
+                lograr dar felicidad y una buena vida a todas las mascotas del país. Además, convertirnos en el
+                destino preferido para los amantes de las mascotas, proporcionando productos de alta calidad,
+                servicio excepcional y recursos educativos para promover el bienestar de las mascotas.</p>
+        </div>
     </section>
 
     <section id="encuentranos">
-
+        <h2>Aquí estamos📍</h2>
+        <gmp-map center="-12.193278312683105,-76.96517181396484" zoom="14" map-id="DEMO_MAP_ID">
+            <gmp-advanced-marker position="-12.193278312683105,-76.96517181396484" title="My location">
+            </gmp-advanced-marker>
+          </gmp-map>
     </section>
-    
-
-    <footer>
-        
+    <hr class="line-footer">
+    <footer id="footer">
+        <div class="socials">
+            <h4>CONTACTANOS</h4>
+            <a href=""><img src="imgs/ico_ig.png" alt="">apetitoPetOf</a>
+            <a href=""><img src="imgs/ico_fb.png" alt="">Apetito Pet Shop</a>
+            <a href=""><img src="imgs/ico_wssp.png" alt="">+51 932 311 331</a>
+        </div>
+        <div class="ubicacion">
+            <h4>UBICANOS</h4>
+            <a href=""><img src="imgs/ubi.png" alt="">Av. Mateo Pumacahua Villa EL Salvador 15842</a>
+        </div>
+        <div class="horario">
+            <h4>HORARIOS</h4>
+            <a href=""><img src="imgs/reloj.png" alt="">Lunes - Sábado 9am - 6pm</a>
+            <a href="" class="libro-reclamaciones-logo"><img src="imgs/libro-reclamaciones.png" alt=""></a>
+        </div>
     </footer>
 
     <script src="js/script.js"></script>
