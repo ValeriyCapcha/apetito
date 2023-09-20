@@ -111,14 +111,14 @@ nav img{
     padding: 10px 12px;
     border-radius: 25px;
     cursor: pointer;
-    box-shadow: 10px 10px 40px var(--color-secundario);
+    box-shadow: 10px 10px 40px #C0C0FF;
     margin: 15px 0;
     transition: 0.2s ease;
     position: relative;
 }
 
 #oferta1 .ofer:hover{
-    box-shadow: 10px 10px 40px #503908;
+    box-shadow: 15px 15px 40px #FFFF00;
 }
 
 #oferta1 .ofer img{
