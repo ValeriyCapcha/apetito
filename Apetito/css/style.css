@@ -78,7 +78,7 @@ nav img{
 
 /*HEROOOOOOOOOOOO*/
 #hero{
-    background-color: var(--color-primario);
+    /*background-color: var(--color-primario);*/
     /*Logo a la mitad*/
     height: 45vh;
     width: 100%;
@@ -87,7 +87,6 @@ nav img{
     align-items: center;
     justify-content: center;
 }
-
 /*seccion ofertas gaaaa*/
 #oferta1{
     text-align: center;
