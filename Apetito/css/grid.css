@@ -40,7 +40,7 @@
     position: relative;
 }
 #producto .prod:hover{
-    box-shadow: 15px 15px 40px #ffff59;
+    box-shadow: 15px 15px 40px #7777ff;
 }
 #producto .prod img{
     width: 100%;
@@ -53,4 +53,16 @@
 #producto .prod .des h4{
     color: #FF0000;
     font-size: 20px;
+    text-align: center;
+}
+.btnAgregarCarrito1{
+    text-decoration: none;
+    display: block;
+    height: inherit;
+    margin-top: 5px;
+    background-color: red;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
 }
