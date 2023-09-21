@@ -247,7 +247,7 @@ nav img{
 #sobre-nosotros img{
     border-radius: 10px;
     margin: 0 100px;
-    width: 400px;
+    width: 500px;
     height: auto;
 }
 
@@ -280,6 +280,9 @@ nav img{
     text-align: center;
 }
 
+.vision p{
+    padding: 0 10px;
+}
 /*mapaaaaaaa*/
 #encuentranos{
     text-align: center;
