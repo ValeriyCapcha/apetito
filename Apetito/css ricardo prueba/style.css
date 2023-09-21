@@ -1,0 +1,363 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', 'Raleway',sans-serif;
+}
+
+:root{
+    --color-primario:#F1BD0E;
+    --color-secundario:#7C580A;
+    --color-terciario:#4e3809;
+    --tamanio-titulo:700;
+    --tamanio-subtitulo:400;
+    --tamanio-texto:200;
+}
+
+body{
+    width: 100%;
+}
+/*BARA DE NAVEGACIOOOOOOOOOOOOOOON*/
+.logo{
+    width: 60px;
+    height: auto;
+    padding-left: 20%;
+}
+
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #F1BD0E;
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+nav img{
+    width: 30px;
+    height: auto;
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: var(--tamanio-subtitulo);
+    color: black;
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active{
+    color: var(--color-secundario);
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after{
+    content: "";
+    width: 30%;
+    height: 2px;
+    background-color: var(--color-secundario);
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+/*HEROOOOOOOOOOOO*/
+#hero{
+    /*background-color: var(--color-primario);*/
+    /*Logo a la mitad*/
+    height: 45vh;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*seccion ofertas gaaaa*/
+#oferta1{
+    text-align: center;
+    height: 70vh;
+    width: 100%;
+}
+#oferta1 h2{
+    padding: 40px 0;
+    font-weight: 700;
+    font-size: 30px;
+}
+.ofer-container{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    flex-wrap: wrap;
+    margin: 0px 100px;
+}
+
+#oferta1 .ofer{
+    width: 20%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 10px 10px 40px #C0C0FF;
+    margin: 15px 0;
+    transition: 0.2s ease;
+    position: relative;
+}
+
+#oferta1 .ofer:hover{
+    box-shadow: 15px 15px 40px #7777ff;
+}
+
+#oferta1 .ofer img{
+    width: 100%;
+    border-radius: 20px;
+}
+#oferta1 .ofer .des{
+    text-align: start;
+    padding: 10px 0;
+}
+#oferta1 .ofer .des span{
+    color: var(--color-secundario);
+    font-size: 12px;
+}
+#oferta1 .ofer .des h5{
+    padding-top: 7px;
+    color: black;
+    font-size: 15px;
+}
+.precio-ofer{
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+}
+#oferta1 .ofer .des h6{
+    padding-top: 5px;
+    padding-right: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: gray;
+}
+#oferta1 .ofer .des h4{
+    padding-top: 5px;
+    font-size: 25px;
+    font-weight: 700;
+    color: red;
+}
+.btnAgregarCarrito{
+    text-decoration: none;
+    display: block;
+    height: inherit;
+    margin-top: 5px;
+    background-color: red;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}
+
+/*Ver mas*/
+#ver{
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.btnVermas{
+    text-decoration: none;
+    display: block;
+    height: inherit;
+    width: 200px;
+    margin-top: 5px;
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}
+
+/*NProductos*/
+#NProductos{
+    height: 50vh;
+    width: 100%;
+    align-content: center;
+    padding-top: 100px;
+}
+
+#NProductos h2{
+    border-top: 10px dotted var(--color-primario);
+    border-bottom: 10px dotted var(--color-primario);
+    text-align: center;
+    font-size: 50px;
+    color: var(--color-primario);
+}
+.animales-container .animales img{
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    transition: all 500ms ease-out;
+}
+.animales-container .animales .Texto{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    opacity: 0;
+    visibility: hidden;
+    color: white;
+    transition: all 500ms ease-out;
+}
+.animales{
+    width: 350px;
+    height: 350px;
+    border-radius: 25px;
+    background-color: rgb(108, 166, 166);
+    margin: 15px 0;
+    position: relative;
+}
+.animales-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 100px;
+    align-items: center;
+    text-align: center;
+}
+#NProductos .animales:hover > .Texto{
+    opacity: 1;
+    visibility: visible;
+}
+#NProductos .animales:hover > img{
+    opacity: 0.3;
+    visibility: visible;
+}
+
+/*sobre nosootros*/
+#sobre-nosotros{
+    height: 65vh;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#sobre-nosotros img{
+    border-radius: 10px;
+    margin: 0 100px;
+    width: 500px;
+    height: auto;
+    box-shadow: 10px 10px 40px var(--color-secundario);
+    transition: 0.2s ease;
+}
+#sobre-nosotros img:hover{
+    box-shadow: 10px 10px 40px var(--color-terciario);
+}
+
+.sobre-text{
+    width: 500px;
+    height: auto;
+}
+.sobre-text h2{
+    color: var(--color-primario);
+    font-size: 40px;
+}
+
+/*MISION Y VIOOOOOOOOOOOOOOOON*/
+#myv{
+    height: 50vh;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primario);
+}
+.mision{
+    width: 50%;
+    height: 20%;
+    text-align: center;
+}
+.vision{
+    width: 50%;
+    height: 20%;
+    text-align: center;
+}
+
+.vision p{
+    padding: 0 10px;
+}
+/*mapaaaaaaa*/
+#encuentranos{
+    text-align: center;
+}
+#encuentranos h2{
+    font-size: 50px;
+    color: var(--color-secundario);
+    padding: 40px 0;
+}
+#encuentranos gmp-map {
+    height: 50vh;
+}
+
+.line-footer{
+    color: black;
+    background-color: black;
+    height: 1.5px;
+    margin: 20px 0;;
+}
+
+/*foooooter*/
+#footer{
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 20vh;
+    width: 100%;
+}
+
+#footer h4{
+    font-size: 20px;
+}
+#footer .socials, .ubicacion, .horario{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;    
+}
+#footer .socials{
+    text-align: start;
+}
+#footer img{
+    width: 40px;
+    height: auto;
+    margin: 0 10px 10px 0;
+}
+
+#footer a{
+    color: black;
+    text-decoration: none;
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+
+#footer .libro-reclamaciones-logo img{
+    width: 200px;
+    height: auto;
+}
+
+.libro-reclamaciones-logo{
+    margin: 0px 50px;
+}
