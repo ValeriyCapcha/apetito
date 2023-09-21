@@ -6,14 +6,13 @@
     --color-secundario:#7C580A;
 }
 .section1 {
-	background: #f6f5f7;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	font-family: 'Poppins', 'Raleway',sans-serif;
-	height: 70vh;
-	margin: -20px 0 50px;
+	height: 65vh;
+	margin: -20px 0 -25px;
 }
 
 h1 {
@@ -37,7 +36,7 @@ span {
 	font-size: 12px;
 }
 
-a {
+.form-container a {
 	color: #333;
 	font-size: 14px;
 	text-decoration: none;
@@ -196,4 +195,3 @@ input {
 .container.right-panel-active .overlay-right {
 	transform: translateX(20%);
 }
-
