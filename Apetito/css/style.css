@@ -85,7 +85,6 @@ nav img{
 
 /*HEROOOOOOOOOOOO*/
 #hero{
-    background-color: var(--color-primario);
     /*Logo a la mitad*/
     height: 45vh;
     width: 100%;
@@ -93,6 +92,38 @@ nav img{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.container-imagen{
+    max-width: 49rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: auto;
+    text-align: center;
+}
+.video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55vh;
+    overflow: hidden;
+}
+.video video{
+    min-width: 100%;
+    min-height: 100%;
+}
+.overlay-video{
+    height: 55vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--color-primario);
+    z-index: 1;
+    opacity: .45;
+}
+.container-imagen{
+    z-index: 2;
 }
 /*seccion ofertas gaaaa*/
 #oferta1{
