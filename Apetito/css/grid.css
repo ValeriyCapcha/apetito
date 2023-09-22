@@ -65,4 +65,9 @@
     border-radius: 10px;
     color: white;
     text-align: center;
+    transition: transform 80ms ease-in;
+}
+
+.btnAgregarCarrito1:active {
+	transform: scale(0.95);
 }
