@@ -64,7 +64,7 @@ button:focus {
 	outline: none;
 }
 
-button.ghost {
+button.btn {
 	background-color: transparent;
 	border-color: #FFFFFF;
 }
@@ -194,4 +194,14 @@ input {
 
 .container.right-panel-active .overlay-right {
 	transform: translateX(20%);
+}
+
+.sesionGoogle{
+	margin: 20px;
+	width: 50px;
+	height: auto;
+}
+.sesionGoogle img{
+	width: 40px;
+	height: auto;
 }
