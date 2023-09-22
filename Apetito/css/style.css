@@ -90,7 +90,7 @@ nav img{
 /*seccion ofertas gaaaa*/
 #oferta1{
     text-align: center;
-    height: 70vh;
+    height: auto;
     width: 100%;
 }
 #oferta1 h2{
@@ -190,7 +190,7 @@ nav img{
 
 /*NProductos*/
 #NProductos{
-    height: 50vh;
+    height: auto;
     width: 100%;
     align-content: center;
     padding-top: 100px;
