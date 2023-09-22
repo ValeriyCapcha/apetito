@@ -13,6 +13,13 @@
     --tamanio-texto:200;
 }
 
+h1{
+    border-top: 10px dotted var(--color-primario);
+    border-bottom: 10px dotted var(--color-primario);
+    font-size: 40px;
+    color: var(--color-primario);
+}
+
 body{
     width: 100%;
 }
@@ -78,7 +85,7 @@ nav img{
 
 /*HEROOOOOOOOOOOO*/
 #hero{
-    /*background-color: var(--color-primario);*/
+    background-color: var(--color-primario);
     /*Logo a la mitad*/
     height: 45vh;
     width: 100%;
@@ -195,7 +202,6 @@ nav img{
     align-content: center;
     padding-top: 100px;
 }
-
 #NProductos h2{
     border-top: 10px dotted var(--color-primario);
     border-bottom: 10px dotted var(--color-primario);
@@ -215,6 +221,7 @@ nav img{
     width: 100%;
     height: 100%;
     border-radius: 25px;
+    padding-top: 10%;
     opacity: 0;
     visibility: hidden;
     color: white;
@@ -228,22 +235,42 @@ nav img{
     margin: 15px 0;
     position: relative;
 }
-.animales-container{
+#NProductos .animales-container{
     display: flex;
     justify-content: space-between;
     margin: 0px 100px;
     align-items: center;
     text-align: center;
 }
-#NProductos .animales:hover > .Texto{
+.animales:hover > .Texto{
     opacity: 1;
     visibility: visible;
 }
-#NProductos .animales:hover > img{
+.animales:hover > img{
     opacity: 0.3;
     visibility: visible;
 }
-
+/*Servicios*/
+#Servicios{
+    height: auto;
+    width: 100%;
+    align-content: center;
+    padding-top: 100px;
+}
+#Servicios h2{
+    border-top: 10px dotted var(--color-primario);
+    border-bottom: 10px dotted var(--color-primario);
+    text-align: center;
+    font-size: 50px;
+    color: var(--color-primario);
+}
+#Servicios .animales-container{
+    display: grid;
+    place-items: center;
+    margin: 0px 100px;
+    align-items: center;
+    text-align: center;
+}
 /*sobre nosootros*/
 #sobre-nosotros{
     height: 65vh;
