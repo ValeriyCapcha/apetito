@@ -244,6 +244,41 @@ nav img{
     visibility: visible;
 }
 
+/*Cuadros Ricardo pasarela de compras*/
+.ricardo1{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    }
+
+.ricardo2{
+    justify-content: center;
+    display: flex;
+    align-items: flex-start;
+    border: solid 1px black, rgba(255, 255, 255, 0.2);
+    font-size: 14px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+thead{
+    background: #C0C0FF;
+    justify-content: center;
+
+}
+th{
+    justify-content: center;
+    padding: 20px 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+td{
+    padding: 15px;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+}
+tbody tr:hover {
+    background: rgba(243, 103, 199, 0.4)
+}
+
 /*sobre nosootros*/
 #sobre-nosotros{
     height: 65vh;
@@ -361,3 +396,4 @@ nav img{
 .libro-reclamaciones-logo{
     margin: 0px 50px;
 }
+
