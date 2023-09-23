@@ -436,3 +436,53 @@ nav img{
 .libro-reclamaciones-logo{
     margin: 0px 50px;
 }
+@media (max-width: 1070px) {
+    #footer{
+        width: 15%;
+        display: inline;
+        text-align: center;
+    }
+    #footer .socials{
+        text-align: center;
+    }
+    #footer img{
+        width: 40px;
+        height: auto;
+        text-align: center;
+    }
+    #footer a{
+        align-items: center;
+        text-align: center;
+        padding-left: 35%;
+        padding-right: 35%;
+    }
+    .ofer-container{
+        display: grid;
+        place-items: center;
+    }
+}
+@media (max-width: 600px) {
+    #footer{
+        width: 15%;
+        display: inline;
+        text-align: center;
+    }
+    #footer .socials{
+        text-align: center;
+    }
+    #footer img{
+        width: 40px;
+        height: auto;
+        text-align: center;
+    }
+    #footer a{
+        align-items: center;
+        text-align: center;
+        padding-left: 25%;
+        padding-right: 25%;
+    }
+    .ofer-container{
+        display: grid;
+        place-items: center;
+    }
+}
