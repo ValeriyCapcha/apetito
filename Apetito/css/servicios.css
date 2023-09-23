@@ -1,0 +1,33 @@
+.fondo{
+    padding: 0;
+    background-image: url(../imgs/placeholderFondo.jpg);
+    height: auto;
+}
+.container-servicios{
+    display: flex;
+    margin: 5% 12%;
+    padding: 30px;
+    justify-content: space-between;
+    background-color: rgba(60, 144, 240, 0.8);
+    width: 75%;
+    border-radius: 50px;
+}
+.container-servicios .Informacion{
+    width: 50%;
+}
+.container-servicios .Formulario{
+    width: 50%;
+    margin-left: 40px;
+}
+.Form{
+    padding: 10px;
+}
+.Form input, select{
+    width: 225px;
+    height: 30px;
+}
+.Form .Boton{
+    width: 100px;
+    background-color: yellow;
+    border-radius: 10px;
+}
