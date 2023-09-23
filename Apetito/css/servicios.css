@@ -11,18 +11,17 @@
     padding: 30px;
     justify-content: space-between;
     background-color: rgba(255, 255, 255, 0.7);
-    width: 75%;
     border-radius: 50px;
 }
 .container-servicios .Informacion{
-    width: 40%;
+    width: 45%;
 }
 .container-servicios .Formulario{
-    width: 60%;
-    margin-left: 40px;
+    width: 55%;
 }
 .Form{
     padding: 10px;
+    text-align: center;
 }
 .Form input, select{
     width: 225px;
@@ -30,6 +29,9 @@
 }
 .Form .Boton{
     width: 100px;
-    background-color: yellow;
+    background-color: #F1BD0E;
     border-radius: 10px;
+}
+h2{
+    text-align: center;
 }
