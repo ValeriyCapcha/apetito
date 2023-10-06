@@ -54,6 +54,7 @@ nav img{
 }
 
 #navbar li{
+    display: flex;
     list-style: none;
     padding: 0 20px;
     position: relative;
@@ -81,6 +82,15 @@ nav img{
     position: absolute;
     bottom: -4px;
     left: 20px;
+}
+
+.nav-toggle{
+    color: var(--color-terciario);
+    background: none;
+    border: none;
+    padding: 0 20px;
+    line-height: 60px;
+    display: none;
 }
 
 /*HEROOOOOOOOOOOO*/
