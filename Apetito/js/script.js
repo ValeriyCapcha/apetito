@@ -1,4 +1,4 @@
-
+/*
 const $d = document;
 const $template = $d.getElementById("arepa-template").content;
 const $fragment = $d.createDocumentFragment();
@@ -32,4 +32,9 @@ $d.addEventListener("click", e => {
             }
         })
     }
+})*/
+const boton = document.querySelector('.lista');
+const nav   = document.querySelector('.nav');
+boton.addEventListener('click',()=>{
+    nav.classList.toggle('activo')
 })
