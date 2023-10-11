@@ -503,7 +503,7 @@ nav img{
     }
     #NProductos .animales-container{
         grid-template-columns: auto;
-        margin: 0px 100px;
+        margin: 0px 160px;
     }
     .animales{
         width: 25vh;
@@ -518,7 +518,7 @@ nav img{
     .nav{
         width: 100%;
         /* display: none; */
-        transition: all .5s ease;
+        transition: all 0.5s ease;
         height: 0;
 
         display: flex;
@@ -529,6 +529,6 @@ nav img{
     }
     .nav.activo{
         /* display: block; */
-        height: auto;
+        height: 200px;
     }
 }
