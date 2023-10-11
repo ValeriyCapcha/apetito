@@ -480,7 +480,7 @@ nav img{
 @media (max-width: 600px) {
     #footer{
         width: 15%;
-        display: grid;
+        display: inline;
         text-align: center;
     }
     #footer .socials{
