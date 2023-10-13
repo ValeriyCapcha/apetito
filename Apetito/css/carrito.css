@@ -134,3 +134,37 @@ nav img{
     text-align: center;
     margin: 0 5px;
 }
+@media (max-width: 600px) {
+    .contenedorcar {
+        flex-direction: row; /* Cambia la dirección a fila para mostrar la imagen y el texto en la misma fila */
+        align-items: center; /* Alinea los elementos verticalmente al centro */
+        display: flex;
+        flex-wrap: wrap; /* Permite que los elementos se envuelvan cuando no quepan en el ancho disponible */
+    }
+    
+    .imagencar {
+        width: 25%; /* La imagen ocupará todo el ancho disponible */
+        height: auto;
+        margin-right: 0; /* Elimina el margen derecho */
+    }
+
+
+    .cantidad-form, .resultado-form {
+        display: flex; /* Mantiene la disposición en fila */
+        align-items: center;
+        padding: 10px; /* Reduce el espacio alrededor del formulario */
+        padding-left: 25%;
+        padding-right: 25%;
+    }
+
+    .cantidad-control p {
+        padding: 5px; /* Reduce el espacio alrededor de los botones - y + */
+    }
+
+    #canti {
+        width: 100px; /* Reduce el ancho del campo de cantidad */
+        height: 30px;
+        text-align: center;
+        margin: 0 20px;
+    }
+}
