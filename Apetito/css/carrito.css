@@ -145,7 +145,7 @@ nav img{
     .imagencar {
         width: 25%; /* La imagen ocupará todo el ancho disponible */
         height: auto;
-        margin-right: 0; /* Elimina el margen derecho */
+        margin-right: 0; /* Elimina el margen derecho*/
     }
 
 
