@@ -7,22 +7,34 @@ const btnLeft = document.querySelector(".btn-left"),
 let operacion = 0
 let i = 0
 let mover = 100 / sliderSection.length;
-
+let varia = 3
 slider.style.transition = "all ease .6s"
+
+
+/*Responsive */
+function variable(x) {
+    if (x.matches) { // If media query matches
+        varia = 1
+    } else {
+        varia = 3
+    }
+}
+var x = window.matchMedia("(max-width: 600px)")
+variable(x)
+
+/*Se Mueve cada X segundos*/
+setInterval(() => {
+    moveToRight()
+}, 3000); 
 
 /* EVENTOS */
 btnLeft.addEventListener("click", e => moveToLeft())
 btnRight.addEventListener("click", e => moveToRight())
 
-/*Se Mueve cada X segundos*/
-setInterval(() => {
-    moveToRight()
-}, 3000);
-
 /* Funciones */
 console.log(sliderSection.length);
 function moveToRight() {
-    if (i >= sliderSection.length-3) {
+    if (i >= sliderSection.length-varia) {
         i = 0;
         operacion = 0;
         slider.style.transform = `translate(-${operacion}%)`;
@@ -37,9 +49,9 @@ function moveToRight() {
 function moveToLeft() {
     i--;
     if (i < 0 ) {
-        operacion = mover * (sliderSection.length-3)
+        operacion = mover * (sliderSection.length-varia)
         slider.style.transform = `translate(-${operacion}%)`;
-        i = sliderSection.length-3;
+        i = sliderSection.length-varia;
         return;
     }else if(i == 0){
         i--;
@@ -51,45 +63,3 @@ function moveToLeft() {
     operacion = operacion - mover;
     slider.style.transform = `translate(-${operacion}%)`;
 }
- 
-/*
-aplica para el responsive
-function moveToRight() {
-    if (i >= sliderSection.length-1) {
-        i = 0;
-        operacion = 0;
-        slider.style.transform = `translate(-${operacion}%)`;
-        console.log(i);
-        console.log(operacion);
-        return;
-    } 
-    i++;
-    operacion = operacion + mover;
-    slider.style.transform = `translate(-${operacion}%)`;
-    console.log(i);
-    console.log(operacion);
-    
-}  
-
-function moveToLeft() {
-    if (i <= 0 ) {
-        i = sliderSection.length-1;
-        operacion = mover * (sliderSection.length-1)
-        slider.style.transform = `translate(-${operacion}%)`;
-        console.log(i);
-        console.log(operacion);
-        return;
-    }else if(i == 0){
-        i--;
-        operacion = 0;
-        slider.style.transform = `translate(-${operacion}%)`;
-        console.log(i);
-        console.log(operacion);
-        return;
-    }
-    i--;
-    operacion = operacion - mover;
-    slider.style.transform = `translate(-${operacion}%)`;
-    console.log(i);
-    console.log(operacion);
-} */
