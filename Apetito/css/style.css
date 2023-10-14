@@ -511,7 +511,8 @@ nav img{
     }
     #NProductos .animales-container{
         grid-template-columns: auto;
-        margin: 0px 160px;
+        align-items: center;
+        justify-content: center;
     }
     .animales{
         width: 25vh;
