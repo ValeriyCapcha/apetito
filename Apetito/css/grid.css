@@ -43,13 +43,13 @@
     padding: 10px 12px;
     border-radius: 25px;
     cursor: pointer;
-    box-shadow: 10px 10px 40px #C0C0FF;
+    box-shadow: 15px 10px 40px 0.1px rgba(0, 0, 0, 0.466);
     margin: 15px 0;
     transition: 0.2s ease;
     position: relative;
 }
 #producto .prod:hover{
-    box-shadow: 15px 15px 40px #7777ff;
+    box-shadow: 15px 10px 40px 0.1px var(--color-primario);
 }
 #producto .prod img{
     width: 100%;

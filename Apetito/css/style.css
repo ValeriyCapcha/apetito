@@ -168,14 +168,14 @@ nav img{
     padding: 10px 12px;
     border-radius: 25px;
     cursor: pointer;
-    box-shadow: 10px 10px 40px #C0C0FF;
+    box-shadow: 15px 10px 40px 0.1px rgba(0, 0, 0, 0.466);
     margin: 15px 0;
     transition: 0.2s ease;
     position: relative;
 }
 
 #oferta1 .ofer:hover{
-    box-shadow: 15px 15px 40px #7777ff;
+    box-shadow: 15px 10px 40px 0.1px var(--color-primario);
 }
 
 #oferta1 .ofer img{
@@ -498,7 +498,14 @@ nav img{
         padding-left: 25%;
         padding-right: 25%;
     }
+    .socials a{
+        margin-top: 1%;
+        margin-left: 10%;
+    }
+
     .ofer-container{
+        max-width: 500px;
+        max-height: max-content;
         display: grid;
         place-items: center;
     }
@@ -509,6 +516,7 @@ nav img{
     .animales{
         width: 25vh;
         height: 25vh;
+        margin-top: 90px;
     }
     .lista{
         display: block;
@@ -540,4 +548,75 @@ nav img{
         /* display: block; */
         height: 200px;
     }
+    /*sobre nosootros*/
+    #sobre-nosotros{
+        height: 80vh;
+        width: 100%;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        margin: 50px 0px;
+    }
+
+    #sobre-nosotros img{
+        display: none;
+    }
+
+    .sobre-text{
+        width: 500px;
+        height: auto;
+        margin: auto;
+    }
+    .sobre-text h2{
+        color: var(--color-primario);
+        font-size: 50px;
+    }
+    .sobre-text p{
+        font-size: 20px;
+    }
+
+    /*MISION Y VIOOOOOOOOOOOOOOOON*/
+    #myv{
+        height: 90vh;
+        width: 600px;
+        display: grid;
+        margin: auto;
+        background-color: var(--color-primario);
+        
+    }
+    .mision{
+        width: 600px;
+        height: auto;
+        text-align: center;
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+        margin: 50px 100px;
+    }
+    .vision{
+        width: 600px;
+        height: auto;
+        text-align: center;
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+        margin: 50px 100px;
+    }
+    .mision h2{
+        font-size: 50px;
+    }
+    .mision p{
+        font-size: 20px;
+        margin: 0 50px;
+        text-align: start;
+    }
+    .vision h2{
+        font-size: 50px;
+    }
+    .vision p{
+        font-size: 20px;
+        margin: 0 50px;
+        text-align: start;
+    }
+
 }
