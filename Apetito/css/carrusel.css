@@ -1,3 +1,8 @@
+#oferta1{
+    display: grid;
+    place-items: center;
+}
+
 .container-carousel {
     position: relative;
     width: 500px;
@@ -14,7 +19,7 @@
 .slider-section {
     width: calc(100% / 5);
     height: 100%;
-    margin-left: 100px;
+    margin-left: 120px;
 }
 
 .slider-section ofer {
