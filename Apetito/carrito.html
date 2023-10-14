@@ -45,73 +45,56 @@
     <div class="contenedorcar">
         <img class="imagencar" src="imgs/productospetshop/comida_perro2.jpeg" alt="">
         <p class="textocar">RICOCAN Adultos Razas Medianas y Grandes</p>
-        <p class="numeroscar">s/109.90</p>
+        <p class="numeroscar" id="precio1">S/109</p>
         <form action="#" class="cantidad-form">
             <label for="canti">Cantidad:</label>
             <div class="cantidad-control">
-                <p>-</p><input type="text" id="canti" name="canti" value=""><p>+</p>
+                <p id="btnResta1">-</p><input type="text" id="canti1" name="canti" value=""><p id="btnSuma1">+</p>
             </div>
         </form>
         
         <form action="#" class="resultado-form">
             <label for="resul">Total:</label>
             <div class="resultado-control">
-                <input type="text" id="resul" name="resul" value="">
+                <label type="text" id="resul1" name="resul" value="">
             </div>
         </form>
-        
+        <div id="eliminar">
+            <img src="imgs/basura-eliminar.png" alt="">
+        </div>  
     </div><br>
     <hr><br>
     
     <div class="contenedorcar">
         <img class="imagencar" src="imgs/productospetshop/comidaPerro3.jpg" alt="">
         <p class="textocar">ProPlan Adult Lamb - Adulto Cordero 15.9 kg</p>
-        <p class="numeroscar">S/403.50</p>
+        <p class="numeroscar" id="precio2">S/403</p>
         <form action="#" class="cantidad-form">
             <label for="canti">Cantidad:</label>
             <div class="cantidad-control">
-                <p>-</p><input type="text" id="canti" name="canti" value=""><p>+</p>
+                <p id="btnResta2">-</p><input type="text" id="canti2" name="canti2" value=""><p id="btnSuma2">+</p>
             </div>
         </form>
 
         <form action="#" class="resultado-form">
             <label for="resul">Total:</label>
             <div class="resultado-control">
-                <input type="text" id="resul" name="resul" value="">
+                <label type="text" id="resul2" name="resul2" value="">
             </div>
         </form>
-        <div>
-            <img src="" alt="">
+        <div id="eliminar">
+            <img src="imgs/basura-eliminar.png" alt="">
         </div>  
     </div><br>
     <hr><br>
 
-    <div class="contenedorcar">
-        <img class="imagencar" src="imgs/productospetshop/fiprocan.jpeg" alt="Descripción de la imagen">
-        <p class="textocar">Antipulgas, garrapataas Gato 8kg</p>
-        <p class="numeroscar">S/24.00</p>
-        <form action="#" class="cantidad-form">
-            <label for="canti">Cantidad:</label>
-            <div class="cantidad-control">
-                <p>-</p><input type="text" id="canti" name="canti" value=""><p>+</p>
-            </div>
-        </form>
-
-        <form action="#" class="resultado-form">
-            <label for="resul">Total:</label>
-            <div class="resultado-control">
-                <input type="text" id="resul" name="resul" value="">
-            </div>
-        </form>
-    </div><br>
-    <hr><br>
 
     <div class="ofer-container">
         <div class="prod">
             
             <div class="des">
                 <span><b>TOTAL A PAGAR</b></span>
-                <h4 class="texto-rojo">S/.170.07</h4>
+                <label class="texto-rojo" id="totalfinal"></label>
             </div>
             <a href="../Apetito/assets/succes.html" class="btnAgregarCarrito1">Hacer pedido</a>
         </div>

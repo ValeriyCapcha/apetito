@@ -17,7 +17,7 @@ btnRight.addEventListener("click", e => moveToRight())
 /*Se Mueve cada X segundos*/
 setInterval(() => {
     moveToRight()
-}, 5000);
+}, 3000);
 
 /* Funciones */
 console.log(sliderSection.length);

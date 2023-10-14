@@ -134,6 +134,15 @@ nav img{
     text-align: center;
     margin: 0 5px;
 }
+
+#eliminar {
+    width: 70px;
+    height: auto;
+}
+#eliminar img{
+    width: 100%;
+    height: auto;
+}
 @media (max-width: 600px) {
     .contenedorcar {
         flex-direction: row; /* Cambia la dirección a fila para mostrar la imagen y el texto en la misma fila */
@@ -166,5 +175,10 @@ nav img{
         height: 30px;
         text-align: center;
         margin: 0 20px;
+    }
+    #eliminar {
+        width: 70px;
+        height: auto;
+        margin-left: 50px;
     }
 }
