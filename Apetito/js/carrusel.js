@@ -13,7 +13,7 @@ slider.style.transition = "all ease .6s"
 
 /*Responsive */
 function variable(x) {
-    if (x.matches) { // If media query matches
+    if (x.matches) {
         varia = 1
     } else {
         varia = 3
