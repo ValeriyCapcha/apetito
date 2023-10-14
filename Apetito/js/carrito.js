@@ -61,6 +61,6 @@ btnSuma2.addEventListener('click',()=>{
 })
 
 //total final
-const total = document.querySelectorAll("");
-var totalFinal = document.getElementById('totalfinal');
-totalFinal.innerText = (totalProducto1 + totalProducto2);
+const total = document.querySelectorAll("")
+var totalFinal = document.getElementById('totalfinal')
+totalFinal.innerText = (totalProducto1 + totalProducto2)
