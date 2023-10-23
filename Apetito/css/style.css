@@ -12,32 +12,18 @@
     --tamanio-subtitulo:400;
     --tamanio-texto:200;
 }
-
-h1{
-    border-top: 10px dotted var(--color-primario);
-    border-bottom: 10px dotted var(--color-primario);
-    font-size: 40px;
-    color: var(--color-primario);
-    text-align: center;
-}
-
+/*-----------------------------------------------------------------------*/
 body{
     width: 100%;
     overflow-x: hidden;
 }
 /*BARA DE NAVEGACIOOOOOOOOOOOOOOON*/
-.logo{
-    width: 60px;
-    height: auto;
-    padding-left: 20%;
-}
-
 #header{
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-flow: row wrap;
-    
+    width: 100%;
     padding: 20px;
     background-color: #F1BD0E;
     z-index: 999;
@@ -45,12 +31,19 @@ body{
     top: 0;
     left: 0;
 }
-
+.logo{
+    width: 60px;
+    height: auto;
+    padding-left: 20%;
+}
+.nav{
+    padding-right: 30px;
+    display: flex;
+}
 nav img{
     width: 30px;
     height: auto;
 }
-
 .navbar{
     display: flex;
     flex-flow: row nowrap;
@@ -66,7 +59,7 @@ nav img{
 
 .navbar li a{
     text-decoration: none;
-    font-size: 16px;
+    font-size: 1.8vh;
     font-weight: var(--tamanio-subtitulo);
     color: black;
     transition: 0.3s ease;
@@ -104,7 +97,7 @@ nav img{
 /*HEROOOOOOOOOOOO*/
 #hero{
     /*Logo a la mitad*/
-    height: 45vh;
+    height: 55vh;
     width: 100%;
     background-size: cover;
     display: flex;
@@ -116,6 +109,7 @@ nav img{
     padding-left: 1rem;
     padding-right: 1rem;
     margin: auto;
+    margin-top: 90px;
     text-align: center;
 }
 .video{
@@ -123,7 +117,7 @@ nav img{
     top: 0;
     left: 0;
     width: 100%;
-    height: 55vh;
+    height: 60vh;
     overflow: hidden;
 }
 .video video{
@@ -131,18 +125,19 @@ nav img{
     min-height: 100%;
 }
 .overlay-video{
-    height: 55vh;
+    height: 60vh;
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
     background: var(--color-primario);
-    z-index: 1;
+    z-index: 2;
     opacity: .45;
 }
 .container-imagen{
-    z-index: 2;
+    z-index: 3;
 }
+
 /*seccion ofertas gaaaa*/
 #oferta1{
     text-align: center;
@@ -254,12 +249,13 @@ nav img{
 	transform: scale(0.95);
 }
 
+
 /*NProductos*/
 #NProductos{
     height: auto;
     width: 100%;
     align-content: center;
-    padding-top: 100px;
+    padding-top: 50px;
 }
 #NProductos h2{
     border-top: 10px dotted var(--color-primario);
@@ -269,20 +265,21 @@ nav img{
     color: var(--color-primario);
 }
 #NProductos .animales-container{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    justify-content: space-between;
-    margin: 0px 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0px 10px;
     align-items: center;
     text-align: center;
 }
 .animales{
-    width: 50vh;
-    height: 50vh;
+    width: 35vh;
+    height: 35vh;
     border-radius: 25px;
     background-color: rgb(108, 166, 166);
-    margin: 15px 0;
-    position: relative;
+    margin: 50px 0px;
+    padding-right: 0;
+    position:relative;
     transition: transform 80ms ease-in;
 }
 .animales:active{
@@ -295,16 +292,21 @@ nav img{
     transition: all 500ms ease-out;
 }
 .animales-container .animales .Texto{
-    position: absolute;
+    position:absolute;
     top: 0;
     width: 100%;
     height: 100%;
     border-radius: 25px;
-    padding-top: 10%;
+    /*padding: 20px 20px;*/
     opacity: 0;
     visibility: hidden;
     color: white;
     transition: all 500ms ease-out;
+    justify-content: center;
+    align-items: center;
+}
+.animales-container .animales .Texto h3, p{
+    padding:5%;
 }
 .animales:hover > .Texto{
     opacity: 1;
@@ -319,8 +321,9 @@ nav img{
     height: auto;
     width: 100%;
     align-content: center;
-    padding-top: 100px;
+    padding-top: 50px;
 }
+
 #Servicios h2{
     border-top: 10px dotted var(--color-primario);
     border-bottom: 10px dotted var(--color-primario);
@@ -335,21 +338,22 @@ nav img{
     align-items: center;
     text-align: center;
 }
-
 /*sobre nosootros*/
 #sobre-nosotros{
-    height: 65vh;
+    height: 80vh;
     width: 100%;
-    display: inline-flex;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     
 }
 
 #sobre-nosotros img{
     border-radius: 10px;
     margin: 0 100px;
-    width: 500px;
+    min-width: 250px;
+    max-width: 500px;
     height: auto;
     box-shadow: 10px 10px 40px var(--color-secundario);
     transition: 0.2s ease;
@@ -361,35 +365,38 @@ nav img{
 .sobre-text{
     width: 500px;
     height: auto;
+    margin: 0 10px;
 }
 .sobre-text h2{
     color: var(--color-primario);
     font-size: 40px;
 }
+.sobre-text p{
+    padding: 0;
+}
 
 /*MISION Y VIOOOOOOOOOOOOOOOON*/
 #myv{
-    height: 40vh;
-    width: 100%;
-    display: inline-flex;
+    height: 50vh;
+    width: auto;
+    display: flex;
+    flex-wrap:wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     background-color: var(--color-primario);
+    text-align:center;
+    position: relative;
 }
 .mision{
-    width: 50%;
-    height: 20%;
-    text-align: center;
+    width: 60vh;
+    height: 30%;
+    
 }
 .vision{
-    width: 50%;
-    height: 20%;
-    text-align: center;
+    width: 60vh;
+    height: 30%;
 }
 
-.vision p{
-    padding: 0 10px;
-}
 /*mapaaaaaaa*/
 #encuentranos{
     text-align: center;
@@ -412,9 +419,10 @@ nav img{
 
 /*foooooter*/
 #footer{
-    display: inline-flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:space-around;
     height: 20vh;
     width: 100%;
 }
@@ -453,78 +461,16 @@ nav img{
 .libro-reclamaciones-logo{
     margin: 0px 50px;
 }
-@media (max-width: 1070px) {
-    #footer{
-        width: 15%;
-        display: inline;
-        text-align: center;
-    }
-    #footer .socials{
-        text-align: center;
-    }
-    #footer img{
-        width: 40px;
-        height: auto;
-        text-align: center;
-    }
-    #footer a{
-        align-items: center;
-        text-align: center;
-        padding-left: 35%;
-        padding-right: 35%;
-    }
-    .ofer-container{
-        display: grid;
-        place-items: center;
-    }
-}
-@media (max-width: 600px) {
-    #footer{
-        width: 15%;
-        display: inline;
-        text-align: center;
-    }
-    #footer .socials{
-        text-align: center;
-    }
-    #footer img{
-        width: 40px;
-        height: auto;
-        text-align: center;
-    }
-    #footer a{
-        align-items: center;
-        text-align: center;
-        padding-left: 25%;
-        padding-right: 25%;
-    }
-    .socials a{
-        margin-top: 1%;
-        margin-left: 10%;
-    }
 
-    .ofer-container{
-        max-width: 500px;
-        max-height: max-content;
-        display: grid;
-        place-items: center;
-    }
-    #NProductos .animales-container{
-        grid-template-columns: auto;
-        align-items: center;
-        justify-content: center;
-    }
-    .animales{
-        width: 25vh;
-        height: 25vh;
-        margin-top: 90px;
-    }
+
+
+@media (max-width: 800px) {
     .lista{
         display: block;
         background: none;
         border: 0;
         list-style-type: none;
-        
+        margin-right: 50px;
     }
     .lista img{
         width: 50px;
@@ -547,78 +493,9 @@ nav img{
     }
     .nav.activo{
         /* display: block; */
-        height: 200px;
-    }
-    /*sobre nosootros*/
-    #sobre-nosotros{
-        height: 80vh;
-        width: 100%;
-        display: grid;
-        align-items: center;
-        justify-content: center;
-        margin: 50px 0px;
+        height: 250px;
     }
 
-    #sobre-nosotros img{
-        display: none;
-    }
-
-    .sobre-text{
-        width: 500px;
-        height: auto;
-        margin: auto;
-    }
-    .sobre-text h2{
-        color: var(--color-primario);
-        font-size: 50px;
-    }
-    .sobre-text p{
-        font-size: 20px;
-    }
-
-    /*MISION Y VIOOOOOOOOOOOOOOOON*/
-    #myv{
-        height: 90vh;
-        width: 600px;
-        display: grid;
-        margin: auto;
-        background-color: var(--color-primario);
-        
-    }
-    .mision{
-        width: 600px;
-        height: auto;
-        text-align: center;
-        margin: auto;
-        align-items: center;
-        justify-content: center;
-        margin: 50px 100px;
-    }
-    .vision{
-        width: 600px;
-        height: auto;
-        text-align: center;
-        margin: auto;
-        align-items: center;
-        justify-content: center;
-        margin: 50px 100px;
-    }
-    .mision h2{
-        font-size: 50px;
-    }
-    .mision p{
-        font-size: 20px;
-        margin: 0 50px;
-        text-align: start;
-    }
-    .vision h2{
-        font-size: 50px;
-    }
-    .vision p{
-        font-size: 20px;
-        margin: 0 50px;
-        text-align: start;
-    }
 
     /*HEROOOOOOOOOOOO*/
     #hero{
