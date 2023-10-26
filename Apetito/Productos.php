@@ -16,7 +16,7 @@
     <div class="contenedor">
 
     <section id="header">
-        <a href="index.html"><img src="imgs/logopet.png" alt="" class="logo"></a>
+        <a href="index.php"><img src="imgs/logopet.png" alt="" class="logo"></a>
         
         <button class="lista">
             <img src="imgs/list.svg">
@@ -24,13 +24,13 @@
 
         <nav class="nav">
             <ul class="navbar">
-                <li><a href="index.html">Ofertas</a></li>
-                <li><a class="active" href="Productos.html">Productos</a></li>
-                <li><a href="servicios.html">Baño de mascotas</a></li>
-                <li><a href="index.html#sobre-nosotros">Nosotros</a></li>
-                <li><a href="index.html#encuentranos">Encuentranos</a></li>
-                <li><a href="login.html"><img src="imgs/login.png" alt=""></a></li>
-                <li><a href="carrito.html"><img src="imgs/shopcar.png" alt=""></a></li>
+                <li><a href="index.php">Ofertas</a></li>
+                <li><a class="active" href="Productos.php">Productos</a></li>
+                <li><a href="servicios.php">Baño de mascotas</a></li>
+                <li><a href="index.php#sobre-nosotros">Nosotros</a></li>
+                <li><a href="index.php#encuentranos">Encuentranos</a></li>
+                <li><a href="login.php"><img src="imgs/login.png" alt=""></a></li>
+                <li><a href="carrito.php"><img src="imgs/shopcar.png" alt=""></a></li>
             </ul>
         </nav>
 

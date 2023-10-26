@@ -16,7 +16,7 @@
 </head>
 <body>
     <section id="header">
-        <a href="index.html"><img src="imgs/logopet.png" alt="" class="logo"></a>
+        <a href="index.php"><img src="imgs/logopet.png" alt="" class="logo"></a>
         
         <button class="lista">
             <img src="imgs/list.svg">
@@ -24,13 +24,13 @@
 
         <nav class="nav">
             <ul class="navbar">
-                <li><a href="index.html">Ofertas</a></li>
-                <li><a href="Productos.html">Productos</a></li>
-                <li><a href="servicios.html">Baño de mascotas</a></li>
-                <li><a href="index.html#sobre-nosotros">Nosotros</a></li>
-                <li><a href="index.html#encuentranos">Encuentranos</a></li>
-                <li><a href="login.html"><img src="imgs/login.png" alt=""></a></li>
-                <li><a href="carrito.html" class="active"><img src="imgs/shopcar.png" alt=""></a></li>
+                <li><a href="index.php">Ofertas</a></li>
+                <li><a href="Productos.php">Productos</a></li>
+                <li><a href="servicios.php">Baño de mascotas</a></li>
+                <li><a href="index.php#sobre-nosotros">Nosotros</a></li>
+                <li><a href="index.php#encuentranos">Encuentranos</a></li>
+                <li><a href="login.php"><img src="imgs/login.png" alt=""></a></li>
+                <li><a class="active" href="carrito.php"><img src="imgs/shopcar.png" alt=""></a></li>
             </ul>
         </nav>
     </section>
@@ -74,7 +74,39 @@
         <form action="#" class="cantidad-form">
             <label for="canti">Cantidad:</label>
             <div class="cantidad-control">
-                <p id="btnResta2">-</p><input type="text" id="canti2" name="canti2" value=""><p id="btnSuma2">+</p>
+                <p id="btnResta2">-</p><input type="text" id="canti2" name="canti2" value="" readonly><p id="btnSuma2">+</p>
+            </div>
+        </form>
+
+        <form action="#" class="resultado-form">
+            <label for="resul">Total: S/</label>
+            <div class="resultado-control">
+                <label type="text" id="resul2" name="resul2" value="">
+            </div>
+        </form>
+        <div id="eliminar">
+            <img src="imgs/basura-eliminar.png" alt="">
+        </div>  
+    </div><br>
+    <hr><br>
+
+    <div class="contenedorcar">
+        <img class="imagencar" src="imgs/productospetshop/comidaPerro3.jpg" alt="">
+        <p class="textocar">ProPlan Adult Lamb - Adulto Cordero 15.9 kg</p>
+        <p class="numeroscar" id="precio2">S/403</p>
+        <form action="carrito.php" method="post" class="cantidad-form">
+            <label for="canti">Cantidad:</label>
+            <div class="cantidad-control">
+                <input type="submit" value="-">
+                <?php
+                    if($_POST){
+                        //Esto realmente no sirve
+                        $cantidad=$_POST['txtCantidad'];
+                        echo "cantidad: ".$cantidad;
+                    }
+                ?>
+                <input type="text" name="txtCantidad" value="1" readonly>
+                <input type="submit" value="+">
             </div>
         </form>
 
