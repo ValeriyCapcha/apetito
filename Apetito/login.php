@@ -1,3 +1,14 @@
+<?php include("bd/conexion.php"); ?>
+<?php
+    $bd = new conexion();
+    $correo = $_GET["txtEmail"];
+    $contrasenia = $_GET["txtPassword"];
+    $sql ="SELECT * FROM `usuario` WHERE `Correo` = 'txtEmail' AND `Password`='txtPassword';"
+    $resultado = $bd->consultar($sql);
+    if () {
+        
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -33,19 +44,52 @@
 
     </section>
 
-    <?php
-        if($_GET){
-            $email=$_GET['txtEmail'];
-            $password=$_GET['txtPassword'];
-            if($email=='admin@gmail.com' && $password=='4p3t1t0'){
-                print_r('<img src="imgs/logopet.png">');
-            }else{
-                include ('Secciones/Cuentas.php');
-            }
-        }else{
-            include ('Secciones/Cuentas.php');
-        }
-    ?>
+    <section class="section1">
+        <div class="container" id="container">
+            <!-- FORMULARIO CREAR CUENTAAAAAAAA-->
+            <div class="form-container crear-cuenta-container">
+                <form method="post">
+                    <h1>Crear cuenta</h1>
+                    <input type="text" name="nombre" placeholder="Nombre" />
+                    <input type="text" name="telefono" placeholder="Telefono" />
+                    <input type="email" name="correo" placeholder="Correo" />
+                    <input type="password" name="contraseña" placeholder="Contraseña" />
+                    <button type="submit" name="registrarse">Registrarse</button>
+                    <!--<div class="sesionGoogle">
+                        <a href=""><img src="imgs/ico_google.png" alt=""></a>
+                    </div>-->
+                </form>
+            </div>
+            <!-- FORMULARIO INICIAR SESIOOOOOOOOOOOON-->
+            <div class="form-container iniciar-sesion-container">
+                <form method="post">
+                    <h1>Iniciar Sesión</h1>
+                    <input type="email" name="txtEmail" placeholder="Correo">
+                    <input type="password" name="txtPassword" placeholder="Contraseña">
+                    <a href="#">olvidaste tu contraseña?</a>
+                    <input type="submit" class="button" onclick="mostrarMensaje()" value="Iniciar Sesión">
+                    <!--<div class="sesionGoogle">
+                        <a href=""><img src="imgs/ico_google.png" alt=""></a>
+                    </div>-->
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-izquierdo">
+                        <h1>Bienvenido otra vez!</h1>
+                        <p>Para mantenerse al tanto de las novedades que ofrecemos, inicie sesión.</p>
+                        <button class="btn" id="iniciar">Iniciar Sesión</button>
+                    </div>
+                    <div class="overlay-panel overlay-derecho">
+                        <h1>Hola!</h1>
+                        <p>Registra tus datos personales y ofrecele una mejor experiencia a tu mascota.</p>
+                        <button class="btn" id="regist">Registrarse</button>
+                    </div>
+                </div>
+            </div>
+            <!--<div id="mensaje"><div class="TextoIncorrecto">DATOS INCORRECTOS</div></div>-->
+        </div>
+    </section>
 
     <hr class="line-footer">
     <footer id="footer">
