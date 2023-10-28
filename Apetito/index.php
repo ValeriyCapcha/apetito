@@ -39,7 +39,7 @@
         </div>
         <div class="overlay-video"></div>
         <div class="container-imagen">
-            <img src="imgs/logopet.png" alt="logo" height="250px">
+            <img src="imgs/logopet.png" alt="logo" height="180px">
         </div>
     </section>
     
