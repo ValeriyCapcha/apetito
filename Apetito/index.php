@@ -1,3 +1,16 @@
+<?php include("bd/conexion.php"); ?>
+<?php
+    $Con = new conexion();
+    if($_POST){
+        $id_Producto=$_POST['txtProducto'];
+        $id_Usuario=$_POST['txtUsuario'];
+        $sql="INSERT INTO `carrito` (`id_Usuario`, `id_Producto`) VALUES ('$id_Usuario', '$id_Producto');";
+        $Con->ejecutar($sql); 
+    }
+    $productos=$Con->consultar("SELECT * FROM `Productos`");
+    $array2=$Con->consultar("SELECT * FROM `carrito`"); 
+    $carrito=$Con->IdProducto($array2);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,6 +19,7 @@
     <title>aPETito Pet Shop</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/carrusel.css">
+    <link rel="stylesheet" href="css/grid.css">
     <link rel="icon" href="imgs/logopet.png" type="image/x-icon">
 
     <style>
@@ -45,99 +59,64 @@
     
     
     <section id="oferta1">
-            
         <div class="container-carousel">
             <div class="carruseles" id="slider">
-                
+            <?php 
+                $subarray = array_slice($productos, 8);
+            foreach($subarray as $producto){?>
                 <section class="slider-section">
                     <div class="ofer">
-                        <img src="imgs/productospetshop/comidaPerro.jpg" alt="">
+                        <img src="<?php echo $producto['IMAGEN'];?>" alt="">
                         <div class="des">
-                            <span>COMIDA</span>
-                            <h5>Canbo Adulto Cordero Razas Med/Gran Alimento Seco Perro</h5>
+                            <span><?php echo $producto['CATEGORIA'];?></span>
+                            <h5><?php echo $producto['NOMBRES'];?></h5>
                             <div class="precio-ofer">
-                                <h6>s/70.00</h6>
-                                <h4>s/56.90</h4>
+                                <h6>s/<?php echo $producto['PRECIO']*1.2;?></h6>
+                                <h4>s/<?php echo $producto['PRECIO'];?></h4>
                             </div>
                         </div>
-                        <a href="#" class="btnAgregarCarrito">Agregar al Carrito</a>
+                        <form method="post">
+                            <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO'];?>">
+                            <input type="hidden" name="txtUsuario" value="1">
+                            <?php
+                            if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])){
+                                echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
+                            }else{
+                                echo '<button type="submit" name="agregar" class="btnAgregarCarrito1">Agregar al Carrito</button>';
+                            }
+                            ?>
+                        </form>
                     </div>
                 </section>
-
+            <?php } ?>
+            <?php 
+                $subarray = array_slice($productos, 8);
+            foreach($subarray as $producto){?>
                 <section class="slider-section">
                     <div class="ofer">
-                        <img src="imgs/productospetshop/comida_perro.jpeg" alt="">
+                        <img src="<?php echo $producto['IMAGEN'];?>" alt="">
                         <div class="des">
-                            <span>COMIDA</span>
-                            <h5>Canbo Super Premiun Cachorro Hipolergenico 330gr</h5>
+                            <span><?php echo $producto['CATEGORIA'];?></span>
+                            <h5><?php echo $producto['NOMBRES'];?></h5>
                             <div class="precio-ofer">
-                                <h6>s/15.00</h6>
-                                <h4>s/13.00</h4>
+                                <h6>s/<?php echo $producto['PRECIO']*1.2;?></h6>
+                                <h4>s/<?php echo $producto['PRECIO'];?></h4>
                             </div>
                         </div>
-                        <a href="#" class="btnAgregarCarrito">Agregar al Carrito</a>
+                        <form method="post">
+                            <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO'];?>">
+                            <input type="hidden" name="txtUsuario" value="1">
+                            <?php
+                            if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])){
+                                echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
+                            }else{
+                                echo '<button type="submit" name="agregar" class="btnAgregarCarrito1">Agregar al Carrito</button>';
+                            }
+                            ?>
+                        </form>
                     </div>
                 </section>
-
-                <section class="slider-section">
-                    <div class="ofer">
-                        <img src="imgs/productospetshop/comida_perro2.jpeg" alt="">
-                        <div class="des">
-                            <span>COMIDA</span>
-                            <h5>RICOCAN Adultos Razas Medianas y Grandes Cordero</h5>
-                            <div class="precio-ofer">
-                                <h6>s/115.00</h6>
-                                <h4>s/109.90</h4>
-                            </div>
-                        </div>
-                        <a href="#" class="btnAgregarCarrito">Agregar al Carrito</a>
-                    </div>
-                </section>
-                
-                <section class="slider-section">
-                    <div class="ofer">
-                        <img src="imgs/productospetshop/comidaPerro.jpg" alt="">
-                        <div class="des">
-                            <span>COMIDA</span>
-                            <h5>Canbo Adulto Cordero Razas Med/Gran Alimento Seco Perro</h5>
-                            <div class="precio-ofer">
-                                <h6>s/70.00</h6>
-                                <h4>s/56.90</h4>
-                            </div>
-                        </div>
-                        <a href="#" class="btnAgregarCarrito">Agregar al Carrito</a>
-                    </div>
-                </section>
-
-                <section class="slider-section">
-                    <div class="ofer">
-                        <img src="imgs/productospetshop/comida_perro.jpeg" alt="">
-                        <div class="des">
-                            <span>COMIDA</span>
-                            <h5>Canbo Super Premiun Cachorro Hipolergenico 330gr</h5>
-                            <div class="precio-ofer">
-                                <h6>s/15.00</h6>
-                                <h4>s/13.00</h4>
-                            </div>
-                        </div>
-                        <a href="#" class="btnAgregarCarrito">Agregar al Carrito</a>
-                    </div>
-                </section>
-
-                <section class="slider-section">
-                    <div class="ofer">
-                        <img src="imgs/productospetshop/comida_perro2.jpeg" alt="">
-                        <div class="des">
-                            <span>COMIDA</span>
-                            <h5>RICOCAN Adultos Razas Medianas y Grandes Cordero</h5>
-                            <div class="precio-ofer">
-                                <h6>s/115.00</h6>
-                                <h4>s/109.90</h4>
-                            </div>
-                        </div>
-                        <a href="#" class="btnAgregarCarrito">Agregar al Carrito</a>
-                    </div>
-                </section>
+            <?php } ?>
             </div>
             <div class="btn-left">&#60</div>
             <div class="btn-right">&#62</div>
