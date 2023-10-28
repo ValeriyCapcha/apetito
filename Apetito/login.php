@@ -1,14 +1,4 @@
-<?php include("bd/conexion.php"); ?>
-<?php
-    $bd = new conexion();
-    $correo = $_GET["txtEmail"];
-    $contrasenia = $_GET["txtPassword"];
-    $sql ="SELECT * FROM `usuario` WHERE `Correo` = 'txtEmail' AND `Password`='txtPassword';"
-    $resultado = $bd->consultar($sql);
-    if () {
-        
-    }
-?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -63,11 +53,15 @@
             <!-- FORMULARIO INICIAR SESIOOOOOOOOOOOON-->
             <div class="form-container iniciar-sesion-container">
                 <form method="post">
+                    <?php
+                    include("conn.php");
+                    include("controlador_login.php");
+                    ?>
                     <h1>Iniciar Sesión</h1>
-                    <input type="email" name="txtEmail" placeholder="Correo">
-                    <input type="password" name="txtPassword" placeholder="Contraseña">
+                    <input type="email" name="txtEmail" placeholder="Correo"><!--name:txtEmail-->
+                    <input type="password" name="txtPassword" placeholder="Contraseña"><!--txtPassword-->
                     <a href="#">olvidaste tu contraseña?</a>
-                    <input type="submit" class="button" onclick="mostrarMensaje()" value="Iniciar Sesión">
+                    <input type="submit" class="button" name="btnIngresar" value="Iniciar Sesión">
                     <!--<div class="sesionGoogle">
                         <a href=""><img src="imgs/ico_google.png" alt=""></a>
                     </div>-->
