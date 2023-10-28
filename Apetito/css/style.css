@@ -25,7 +25,7 @@ body{
     flex-flow: row wrap;
     width: 100%;
     padding: 20px;
-    background-color: #F1BD0E;
+    background-color: var(--color-primario);
     z-index: 999;
     position: sticky;
     top: 0;
@@ -304,7 +304,7 @@ nav img{
     justify-content: center;
     align-items: center;
 }
-.animales-container .animales .Texto h3, p{
+.animales-container .animales .Texto h3 .p{
     padding:5%;
 }
 .animales:hover > .Texto{

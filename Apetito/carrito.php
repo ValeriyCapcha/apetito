@@ -70,6 +70,8 @@
 
     <?php foreach($productos as $producto){?>
         <div class="contenedorcar">
+            <table>
+    </table>
             <img class="imagencar" src="<?php echo $producto['IMAGEN'];?>" alt="">
             <p class="textocar"><?php echo $producto['NOMBRES'];?></p>
             <p class="numeroscar"><?php echo $producto['PRECIO'];?></p>
@@ -78,9 +80,9 @@
                     <form method="post">
                         <input type="hidden" name="cant" value="<?php echo $producto['Cantidad'];?>">
                         <input type="hidden" name="prod" value="<?php echo $producto['id_Carrito'];?>">
-                        <button type="submit" name="restar"><p>-</p></button>
-                    <p><?php echo $producto['Cantidad'];?></p>
-                        <button type="submit" name="sumar"><p>+</p></button>
+                        <button type="submit" name="restar"><a>-</a></button>
+                        <a><?php echo $producto['Cantidad'];?></a>
+                        <button type="submit" name="sumar"><a>+</a></button>
                     </form>
                 </div>
             
