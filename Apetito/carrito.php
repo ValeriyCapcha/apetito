@@ -112,7 +112,7 @@
             
             <div class="des">
                 <span><b>TOTAL A PAGAR</b></span>
-                <p class="texto-rojo" style="font-size: 50px"><?php echo $Subtotal;?></p>
+                <p class="texto-rojo" style="font-size: 50px">S/.<?php echo $Subtotal;?></p>
             </div>
             <a href="../Apetito/assets/succes.html" class="btnAgregarCarrito1">Hacer pedido</a>
         </div>

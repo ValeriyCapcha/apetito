@@ -10,7 +10,7 @@
                 $this->conexion=new PDO("mysql:host=$this->servidor;port=3307;dbname=$this->nombre", $this->usuario,$this->password );
                 $this->conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);            
             }catch(PDOException $error){
-                echo "No se establecio conexion".$error;
+                echo "No se establecio conexion";
             }
         }
 

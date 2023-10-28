@@ -207,17 +207,6 @@ nav img{
     font-weight: 700;
     color: red;
 }
-.btnAgregarCarrito{
-    text-decoration: none;
-    display: block;
-    height: inherit;
-    margin-top: 5px;
-    background-color: red;
-    padding: 10px;
-    border-radius: 10px;
-    color: white;
-	transition: transform 80ms ease-in;
-}
 
 .btnAgregarCarrito:active {
 	transform: scale(0.95);

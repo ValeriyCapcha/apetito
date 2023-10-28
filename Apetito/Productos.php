@@ -84,6 +84,7 @@
                                     <h4>s/<?php echo $producto['PRECIO'];?></h4>
                                 </div>
                             </div>
+                            <div class="centrar">
                             <form method="post">
                                 <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO'];?>">
                                 <input type="hidden" name="txtUsuario" value="1">
@@ -95,6 +96,7 @@
                                 }
                                 ?>
                             </form>
+                            </div>
                         </div>
                     </section>
                 <?php } ?>
@@ -112,6 +114,7 @@
                                     <h4>s/<?php echo $producto['PRECIO'];?></h4>
                                 </div>
                             </div>
+                            <div class="centrar">
                             <form method="post">
                                 <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO'];?>">
                                 <input type="hidden" name="txtUsuario" value="1">
@@ -123,6 +126,7 @@
                                 }
                                 ?>
                             </form>
+                            </div>
                         </div>
                     </section>
                 <?php } ?>
@@ -145,6 +149,7 @@
                         <h5><?php echo $producto['NOMBRES'];?></h5>
                         <h4>S/<?php echo $producto['PRECIO'];?></h4>
                     </div>
+                    <div class="centrar">
                     <form method="post">
                         <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO'];?>">
                         <input type="hidden" name="txtUsuario" value="1">
@@ -156,6 +161,7 @@
                         }
                         ?>
                     </form>
+                    </div>
                     <!-- <a href="#" class="btnAgregarCarrito1">Agregar al Carrito</a> -->
                 </div>
             <?php

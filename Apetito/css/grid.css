@@ -76,6 +76,10 @@
     text-align: center;
     transition: transform 80ms ease-in;
 }
+.centrar{
+    display: flex;
+    justify-content: center;
+}
 
 .btnAgregarCarrito1:active {
 	transform: scale(0.95);
