@@ -1,18 +1,22 @@
 <?php
-    /* $servidor='localhost';
-    $usuario='root';
-    $password='';
-    $nombre="apetito";
+    class conexion{
+        private $servidor='localhost';
+        private $usuario='root';
+        private $password='';
+        private $nombre="apetito";
 
-    try{
-        $conexion=new PDO("mysql:host=$servidor;port=3307;dbname=$nombre", $usuario,$password );
-        $conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-         
-        $sql="INSERT INTO `carrito` (`id_Carrito`, `id_Usuario`, `id_Producto`) VALUES ('2', '10', '20');";
-        $conexion->exec($sql);  
-        
-        echo "conexion";
-    }catch(PDOException $error){
-        echo "No se establecio conexion".$error;
-    } */
+        public function __construct(){
+            try{
+                $this->conexion=new PDO("mysql:host=$this->servidor;port=3307;dbname=$this->nombre", $this->usuario,$this->password );
+                $this->conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);            
+            }catch(PDOException $error){
+                echo "No se establecio conexion".$error;
+            }
+        }
+
+        public function ejecutar($sql){
+            $this->conexion->exec($sql);
+            return $this->conexion->lastInsertId();
+        }
+    }
 ?>

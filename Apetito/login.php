@@ -38,7 +38,7 @@
             $email=$_GET['txtEmail'];
             $password=$_GET['txtPassword'];
             if($email=='admin@gmail.com' && $password=='4p3t1t0'){
-                include('assets/succes.html');
+                print_r('<img src="imgs/logopet.png">');
             }else{
                 include ('Secciones/Cuentas.php');
             }

@@ -1,3 +1,9 @@
+<?php include("bd/conexion.php"); ?>
+<?php
+    $Con = new conexion();
+    $sql="INSERT INTO `carrito` (`id_Usuario`, `id_Producto`) VALUES ('1', '3');";
+    $Con->ejecutar($sql);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
