@@ -18,5 +18,20 @@
             $this->conexion->exec($sql);
             return $this->conexion->lastInsertId();
         }
+
+        public function consultar($sql){
+            $sentencia=$this->conexion->prepare($sql);
+            $sentencia->execute();
+            return $sentencia->fetchAll();
+        }
+        
+        public function IdProducto($IdArray = null, $key = "id_Producto"){
+            if ($IdArray != null){
+                $idcarrito = array_map(function ($value) use($key){
+                    return $value[$key];
+                }, $IdArray);
+                return $idcarrito;
+            }
+        }
     }
 ?>

@@ -1,8 +1,14 @@
 <?php include("bd/conexion.php"); ?>
 <?php
     $Con = new conexion();
-    $sql="INSERT INTO `carrito` (`id_Usuario`, `id_Producto`) VALUES ('1', '3');";
-    $Con->ejecutar($sql);
+    if($_POST){
+        $id_Producto=$_POST['txtProducto'];
+        $id_Usuario=$_POST['txtUsuario'];
+        $sql="INSERT INTO `carrito` (`id_Usuario`, `id_Producto`) VALUES ('$id_Usuario', '$id_Producto');";
+        $Con->ejecutar($sql); 
+    }
+    $array=$Con->consultar("SELECT * FROM `carrito`"); 
+    $productos=$Con->IdProducto($array);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -172,7 +178,18 @@
                         <h5>RAZA ANTIPULGAS X 500 ML</h5>
                         <h4>S/37.99</h4>
                     </div>
-                    <a href="#" class="btnAgregarCarrito1">Agregar al Carrito</a>
+                    <form method="post">
+                        <input type="hidden" name="txtProducto" value="1">
+                        <input type="hidden" name="txtUsuario" value="1">
+                        <?php
+                        if (in_array(1, $productos ?? [])){
+                            echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
+                        }else{
+                            echo '<button type="submit" name="agregar" class="btnAgregarCarrito1">Agregar al Carrito</button>';
+                        }
+                        ?>
+                    </form>
+                    <!-- <a href="#" class="btnAgregarCarrito1">Agregar al Carrito</a> -->
                 </div>
     
                 <div class="prod">
@@ -182,7 +199,18 @@
                         <h5>Correa Nylon Perros Med/Gran</h5>
                         <h4>S/41.00</h4>
                     </div>
-                    <a href="#" class="btnAgregarCarrito1">Agregar al Carrito</a>
+                    <form method="post">
+                        <input type="hidden" name="txtProducto" value="2">
+                        <input type="hidden" name="txtUsuario" value="1">
+                        <?php
+                        if (in_array(2, $productos ?? [])){
+                            echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
+                        }else{
+                            echo '<button type="submit" name="agregar" class="btnAgregarCarrito1">Agregar al Carrito</button>';
+                        }
+                        ?>
+                    </form>
+                    <!-- <a href="#" class="btnAgregarCarrito1">Agregar al Carrito</a> -->
                 </div>
     
                 <div class="prod">

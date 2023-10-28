@@ -1,3 +1,32 @@
+<?php include("bd/conexion.php"); ?>
+<?php
+    $Subtotal=0;
+    $Con = new conexion();
+    if(isset($_POST['txtItem'])){
+        $Item=$_POST['txtItem'];
+        $sql="DELETE FROM carrito WHERE `carrito`.`id_Carrito` = $Item;";
+        $Con->ejecutar($sql);
+    }
+    if(isset($_POST['sumar'])){
+        $Prod=$_POST['prod'];
+        $Cant=$_POST['cant'];
+        $Cant=$Cant+1;
+        $sql="UPDATE `carrito` SET `Cantidad` = '$Cant' WHERE `carrito`.`id_Carrito` = $Prod";
+        $Con->ejecutar($sql);
+        header("location:carrito.php");
+    }
+    if(isset($_POST['restar'])){
+        $Prod=$_POST['prod'];
+        $Cant=$_POST['cant'];
+        if($Cant>1){
+            $Cant=$Cant-1;
+            $sql="UPDATE `carrito` SET `Cantidad` = '$Cant' WHERE `carrito`.`id_Carrito` = $Prod";
+            $Con->ejecutar($sql);
+            header("location:carrito.php");
+        }
+    }
+    $productos=$Con->consultar("SELECT IMAGEN, NOMBRES, PRECIO, id_Carrito, Cantidad FROM `carrito` C INNER JOIN productos P ON P.ID_PRODUCTO = C.id_Producto");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,88 +68,43 @@
         <h2>Mi carrito</h2>
     </div>
 
-    <section>
-
-    </section>
-    <div class="contenedorcar">
-        <img class="imagencar" src="imgs/productospetshop/comida_perro2.jpeg" alt="">
-        <p class="textocar">RICOCAN Adultos Razas Medianas y Grandes</p>
-        <p class="numeroscar" id="precio1">S/109</p>
-        <form action="#" class="cantidad-form">
-            <label for="canti">Cantidad:</label>
-            <div class="cantidad-control">
-                <p id="btnResta1">-</p>
-                <input type="text" id="canti1" name="canti" value="">
-                <p id="btnSuma1">+</p>
-            </div>
-        </form>
-        
-        <form action="#" class="resultado-form">
-            <label for="resul">Total: S/</label>
-            <div class="resultado-control">
-                <label type="text" id="resul1" name="resul" value="">
-            </div>
-        </form>
-        <div id="eliminar">
-            <img src="imgs/basura-eliminar.png" alt="">
-        </div>  
-    </div><br>
-    <hr><br>
-    
-    <div class="contenedorcar">
-        <img class="imagencar" src="imgs/productospetshop/comidaPerro3.jpg" alt="">
-        <p class="textocar">ProPlan Adult Lamb - Adulto Cordero 15.9 kg</p>
-        <p class="numeroscar" id="precio2">S/403</p>
-        <form action="#" class="cantidad-form">
-            <label for="canti">Cantidad:</label>
-            <div class="cantidad-control">
-                <p id="btnResta2">-</p><input type="text" id="canti2" name="canti2" value="" readonly><p id="btnSuma2">+</p>
-            </div>
-        </form>
-
-        <form action="#" class="resultado-form">
-            <label for="resul">Total: S/</label>
-            <div class="resultado-control">
-                <label type="text" id="resul2" name="resul2" value="">
-            </div>
-        </form>
-        <div id="eliminar">
-            <img src="imgs/basura-eliminar.png" alt="">
-        </div>  
-    </div><br>
-    <hr><br>
-
-    <div class="contenedorcar">
-        <img class="imagencar" src="imgs/productospetshop/comidaPerro3.jpg" alt="">
-        <p class="textocar">ProPlan Adult Lamb - Adulto Cordero 15.9 kg</p>
-        <p class="numeroscar" id="precio2">S/403</p>
-        <form action="carrito.php" method="post" class="cantidad-form">
-            <label for="canti">Cantidad:</label>
-            <div class="cantidad-control">
-                <input type="submit" value="-">
+    <?php foreach($productos as $producto){?>
+        <div class="contenedorcar">
+            <img class="imagencar" src="<?php echo $producto['IMAGEN'];?>" alt="">
+            <p class="textocar"><?php echo $producto['NOMBRES'];?></p>
+            <p class="numeroscar"><?php echo $producto['PRECIO'];?></p>
+                Cantidad:
+                <div class="cantidad-control">
+                    <form method="post">
+                        <input type="hidden" name="cant" value="<?php echo $producto['Cantidad'];?>">
+                        <input type="hidden" name="prod" value="<?php echo $producto['id_Carrito'];?>">
+                        <button type="submit" name="restar"><p>-</p></button>
+                    <p><?php echo $producto['Cantidad'];?></p>
+                        <button type="submit" name="sumar"><p>+</p></button>
+                    </form>
+                </div>
+            
+            <form action="#" class="resultado-form">
+                Total: S/
                 <?php
-                    if($_POST){
-                        //Esto realmente no sirve
-                        $cantidad=$_POST['txtCantidad'];
-                        echo "cantidad: ".$cantidad;
-                    }
+                    $Total=$producto['Cantidad']*$producto['PRECIO'];
+                    $Subtotal=$Subtotal+$Total;
                 ?>
-                <input type="text" name="txtCantidad" value="1" readonly>
-                <input type="submit" value="+">
-            </div>
-        </form>
-
-        <form action="#" class="resultado-form">
-            <label for="resul">Total: S/</label>
-            <div class="resultado-control">
-                <label type="text" id="resul2" name="resul2" value="">
-            </div>
-        </form>
-        <div id="eliminar">
-            <img src="imgs/basura-eliminar.png" alt="">
-        </div>  
-    </div><br>
-    <hr><br>
+                <div class="resultado-control">
+                    <?php echo $Total;?>
+                </div>
+            </form>
+            <div id="eliminar">
+            <form method="post">
+                <input type="hidden" name="txtItem" value="<?php echo $producto['id_Carrito'];?>">
+                <button type="submit" name="wishlist-submit">
+                    <img src="imgs/basura-eliminar.png" alt="">
+                </button>
+            </form>
+            </div>  
+        </div><br>
+        <hr><br>
+    <?php }?>
 
 
     <div class="ofer-container">
@@ -128,9 +112,7 @@
             
             <div class="des">
                 <span><b>TOTAL A PAGAR</b></span>
-                <form action="#" class="texto-rojo">
-                    <label type="text" id="totalfinal" name="resul2" value="">
-                </form>
+                <p class="texto-rojo" style="font-size: 50px"><?php echo $Subtotal;?></p>
             </div>
             <a href="../Apetito/assets/succes.html" class="btnAgregarCarrito1">Hacer pedido</a>
         </div>
