@@ -12,6 +12,5 @@ if(!empty($_POST["btnIngresar"])){
             echo "<div><h3 style='color:red;'>DATOS INCORRECTOS</h3></div>";
         }
     }
-    
 }
 ?>

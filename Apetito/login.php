@@ -39,12 +39,16 @@
             <!-- FORMULARIO CREAR CUENTAAAAAAAA-->
             <div class="form-container crear-cuenta-container">
                 <form method="post">
+                    <?php
+                    include("conn.php");
+                    include("controlador_crearUsuario.php");
+                    ?>
                     <h1>Crear cuenta</h1>
                     <input type="text" name="nombre" placeholder="Nombre" />
                     <input type="text" name="telefono" placeholder="Telefono" />
                     <input type="email" name="correo" placeholder="Correo" />
                     <input type="password" name="contraseña" placeholder="Contraseña" />
-                    <button type="submit" name="registrarse">Registrarse</button>
+                    <input type="submit" class="button" name="btnCrearUsuario" value="Crear cuenta"></input>
                     <!--<div class="sesionGoogle">
                         <a href=""><img src="imgs/ico_google.png" alt=""></a>
                     </div>-->
