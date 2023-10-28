@@ -35,24 +35,16 @@ button{
 
 .textocar {
     text-align: left;
+    width: 30%;
 }
 
 .numeroscar {
     color: red;
+    width: 7%;
     font-weight: bold; /* Estilo para los números */
 }
 .texto-rojo {
     color: red;
-}
-
-.contenedorcar, .ofer-container {
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-.textocar1 {
-    margin-right: 20px;
-    text-align: left;
 }
 
 .cantidad-form, .resultado-form {
@@ -61,10 +53,16 @@ button{
     padding: 20px;
 }
 
-.cantidad-control, .resultado-control {
+.cantidad-control{
     display: flex;
     align-items: center;
     padding: 20px;
+}
+.resultado-control {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    color: red;
 }
 
 .cantidad-control a {

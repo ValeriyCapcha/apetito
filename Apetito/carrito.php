@@ -70,21 +70,19 @@
 
     <?php foreach($productos as $producto){?>
         <div class="contenedorcar">
-            <table>
-    </table>
             <img class="imagencar" src="<?php echo $producto['IMAGEN'];?>" alt="">
             <p class="textocar"><?php echo $producto['NOMBRES'];?></p>
-            <p class="numeroscar"><?php echo $producto['PRECIO'];?></p>
-                Cantidad:
-                <div class="cantidad-control">
-                    <form method="post">
-                        <input type="hidden" name="cant" value="<?php echo $producto['Cantidad'];?>">
-                        <input type="hidden" name="prod" value="<?php echo $producto['id_Carrito'];?>">
-                        <button type="submit" name="restar"><a>-</a></button>
-                        <a><?php echo $producto['Cantidad'];?></a>
-                        <button type="submit" name="sumar"><a>+</a></button>
-                    </form>
-                </div>
+            <p class="numeroscar">S/.<?php echo $producto['PRECIO'];?></p>
+            <div class="cantidad-control">
+            Cantidad:
+                <form method="post">
+                    <input type="hidden" name="cant" value="<?php echo $producto['Cantidad'];?>">
+                    <input type="hidden" name="prod" value="<?php echo $producto['id_Carrito'];?>">
+                    <button type="submit" name="restar"><a>-</a></button>
+                    <a><?php echo $producto['Cantidad'];?></a>
+                    <button type="submit" name="sumar"><a>+</a></button>
+                </form>
+            </div>
             
             <form action="#" class="resultado-form">
                 Total: S/
@@ -93,7 +91,7 @@
                     $Subtotal=$Subtotal+$Total;
                 ?>
                 <div class="resultado-control">
-                    <?php echo $Total;?>
+                    <b><?php echo $Total;?></b>
                 </div>
             </form>
             <div id="eliminar">
