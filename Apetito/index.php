@@ -1,11 +1,13 @@
 <?php include("bd/conexion.php"); ?>
 <?php
     $Con = new conexion();
-    if($_POST){
+    if(isset($_POST['txtProducto'])){
         $id_Producto=$_POST['txtProducto'];
         $id_Usuario=$_POST['txtUsuario'];
         $sql="INSERT INTO `carrito` (`id_Usuario`, `id_Producto`) VALUES ('$id_Usuario', '$id_Producto');";
         $Con->ejecutar($sql); 
+    }if(isset($_GET['usuario'])){
+        echo "<script>alert('Bienvenido');</script>";
     }
     $productos=$Con->consultar("SELECT * FROM `Productos`");
     $array2=$Con->consultar("SELECT * FROM `carrito`"); 
