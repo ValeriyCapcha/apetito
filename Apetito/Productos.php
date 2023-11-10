@@ -7,7 +7,8 @@
         $sql="INSERT INTO `carrito` (`id_Usuario`, `id_Producto`) VALUES ('$id_Usuario', '$id_Producto');";
         $Con->ejecutar($sql); 
     }
-    $productos=$Con->consultar("SELECT * FROM `Productos`");
+    $productos=$Con->consultar("SELECT * FROM `Productos` WHERE `Productos`.`Descuento` = 0");
+    $ofertas=$Con->consultar("SELECT * FROM `Productos` WHERE `Productos`.`Descuento` != 0");
     $array2=$Con->consultar("SELECT * FROM `carrito`"); 
     $carrito=$Con->IdProducto($array2);
 ?>
@@ -71,8 +72,7 @@
             <div class="container-carousel">
                 <div class="carruseles" id="slider">
                 <?php 
-                    $subarray = array_slice($productos, 8);
-                foreach($subarray as $producto){?>
+                foreach($ofertas as $producto){?>
                     <section class="slider-section">
                         <div class="ofer">
                             <img src="<?php echo $producto['IMAGEN'];?>" alt="">
@@ -80,8 +80,8 @@
                                 <span><?php echo $producto['CATEGORIA'];?></span>
                                 <h5><?php echo $producto['NOMBRES'];?></h5>
                                 <div class="precio-ofer">
-                                    <h6>s/<?php echo $producto['PRECIO']*1.2;?></h6>
-                                    <h4>s/<?php echo $producto['PRECIO'];?></h4>
+                                    <h6>s/<?php echo $producto['PRECIO'];?></h6>
+                                    <h4>s/<?php echo $producto['PRECIO']*(100-$producto['Descuento'])/100;?></h4>
                                 </div>
                             </div>
                             <div class="centrar">
@@ -101,8 +101,7 @@
                     </section>
                 <?php } ?>
                 <?php 
-                    $subarray = array_slice($productos, 8);
-                foreach($subarray as $producto){?>
+                foreach($ofertas as $producto){?>
                     <section class="slider-section">
                         <div class="ofer">
                             <img src="<?php echo $producto['IMAGEN'];?>" alt="">
@@ -110,8 +109,8 @@
                                 <span><?php echo $producto['CATEGORIA'];?></span>
                                 <h5><?php echo $producto['NOMBRES'];?></h5>
                                 <div class="precio-ofer">
-                                    <h6>s/<?php echo $producto['PRECIO']*1.2;?></h6>
-                                    <h4>s/<?php echo $producto['PRECIO'];?></h4>
+                                    <h6>s/<?php echo $producto['PRECIO'];?></h6>
+                                    <h4>s/<?php echo $producto['PRECIO']*(100-$producto['Descuento'])/100;?></h4>
                                 </div>
                             </div>
                             <div class="centrar">
@@ -165,7 +164,7 @@
                     <!-- <a href="#" class="btnAgregarCarrito1">Agregar al Carrito</a> -->
                 </div>
             <?php
-                if($producto['ID_PRODUCTO']==8){
+                if($producto['ID_PRODUCTO']==11){
                     break;
                 }
             }?>

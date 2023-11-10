@@ -170,7 +170,7 @@
     
     <section id="Servicios">
         <h2>Nuestros Servicios</h2>
-        <a href="servicios.html">
+        <a href="servicios.php">
         <div class="animales-container">
             <div class="animales">
                 <img src="imgs/servicios.jpg">
