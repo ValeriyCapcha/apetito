@@ -7,26 +7,23 @@ if (isset($_POST['nameh'])) {
     $Email = $_POST['email'];
     $Telefono_Cita = $_POST['phone'];
     $Raza_Mascota = $_POST['raza'];
-    $Tipo_Bano = $_POST['value'];
+    $Tipo_Bano = $_POST['banho'];
     $Fecha_Cita = $_POST['fecha'];
-    $Id_Hora_Cita = $_POST['value'];
+    $Id_Hora_Cita = $_POST['hora'];
+    
+    $insertar = "INSERT INTO citas_servicios(NOMBRE_APELLIDO_CLIENTE, NOMBRE_MASCOTA, Email, Telefono_Cita, Raza_Mascota, Tipo_Bano, Fecha_Cita, Id_Hora_Cita) VALUES ('$NOMBRE_APELLIDO_CLIENTE', '$NOMBRE_MASCOTA', '$Email', '$Telefono_Cita', '$Raza_Mascota', '$Tipo_Bano', '$Fecha_Cita', '$Id_Hora_Cita' )";
 
-    $insertar = "INSERT INTO citas_servicios VALUES ('$NOMBRE_APELLIDO_CLIENTE','$NOMBRE_MASCOTA', '$Email','$Telefono_Cita','$Raza_Mascota'.'$Tipo_Bano'.'$Fecha_Cita'.'$Id_Hora_Cita' )";
+    $sql = $connn->query($insertar);
 
-    $query = mysqli_query($conn,$insertar);
-
-    if ($query) {
+    if ($sql) {
         
-        echo "<script> alert('Cita agendada con exito'); 
-        location.href='.../index.php';
+        echo "<script> alert('Cita agendada con exito');
         </script>";
 
     }else{
-        echo "<script> alert('Cita no agendada'); 
-        location.href='.../servicios.php';
+        echo "<script> alert('Cita no agendada');
         </script>";
-
-}
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -74,8 +71,8 @@ if (isset($_POST['nameh'])) {
             </div>
             <div class="Formulario">
                 <h2>Datos</h2>
-                <form method="POST" name="Formulario_Bano" action=".../conexion.php" autocomplete="on" class="Form">
-                    <input type="text" id="NOMBRE_APELLIDO_CLIENTE" name="nameh" placeholder="Nombres y Apellidos">
+                <form method="POST" autocomplete="on" class="Form">
+                    <input type="text" name="nameh" placeholder="Nombres y Apellidos">
                     <input type="text" id="NOMBRE_MASCOTA" name="namem" placeholder="Nombre de la Mascota">
                     
                     <input type="email" id="Email" name="email" placeholder="Correo">
