@@ -4,22 +4,22 @@
     $add1 = "";
     $add2 = "";
     $add3 = "";
-    if($_POST){
+    if(isset($_POST['txtProducto'])){
         $id_Producto=$_POST['txtProducto'];
         $id_Usuario=$_POST['txtUsuario'];
         $sql="INSERT INTO `carrito` (`id_Usuario`, `id_Producto`) VALUES ('$id_Usuario', '$id_Producto');";
         $Con->ejecutar($sql); 
     }
-    if(isset($_GET['txtAnimales'])){
-        $FiltroAnimales=$_GET['txtAnimales'];
+    if(isset($_POST['txtAnimales'])){
+        $FiltroAnimales=$_POST['txtAnimales'];
         $add1=" AND `Productos`.`ANIMAL` = '$FiltroAnimales'";
     }
-    if(isset($_GET['txtProductos'])){
-        $FiltroProductos=$_GET['txtProductos'];
+    if(isset($_POST['txtProductos'])){
+        $FiltroProductos=$_POST['txtProductos'];
         $add2=" AND `Productos`.`CATEGORIA` = '$FiltroProductos'";
     }
-    if(isset($_GET['txtPrecios'])){
-        $FiltroPrecios=$_GET['txtPrecios'];
+    if(isset($_POST['txtPrecios'])){
+        $FiltroPrecios=$_POST['txtPrecios'];
         $add3=" ORDER BY `Productos`.`PRECIO` $FiltroPrecios";
     }
     $productos=$Con->consultar("SELECT * FROM `Productos` WHERE `Productos`.`Descuento` = 0".$add1.$add2.$add3.";");
@@ -185,7 +185,7 @@
     </div>
 
     <div class="dos">
-        <form method="GET">
+        <form method="POST">
             <h2>Categorías</h2>
             <input type="radio" id="perro" name="txtAnimales" value="Perro">
             <label for="perro">Perro</label>
