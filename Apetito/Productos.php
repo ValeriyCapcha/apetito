@@ -1,13 +1,28 @@
 <?php include("bd/conexion.php"); ?>
 <?php
     $Con = new conexion();
+    $add1 = "";
+    $add2 = "";
+    $add3 = "";
     if($_POST){
         $id_Producto=$_POST['txtProducto'];
         $id_Usuario=$_POST['txtUsuario'];
         $sql="INSERT INTO `carrito` (`id_Usuario`, `id_Producto`) VALUES ('$id_Usuario', '$id_Producto');";
         $Con->ejecutar($sql); 
     }
-    $productos=$Con->consultar("SELECT * FROM `Productos` WHERE `Productos`.`Descuento` = 0");
+    if(isset($_GET['txtAnimales'])){
+        $FiltroAnimales=$_GET['txtAnimales'];
+        $add1=" AND `Productos`.`ANIMAL` = '$FiltroAnimales'";
+    }
+    if(isset($_GET['txtProductos'])){
+        $FiltroProductos=$_GET['txtProductos'];
+        $add2=" AND `Productos`.`CATEGORIA` = '$FiltroProductos'";
+    }
+    if(isset($_GET['txtPrecios'])){
+        $FiltroPrecios=$_GET['txtPrecios'];
+        $add3=" ORDER BY `Productos`.`PRECIO` $FiltroPrecios";
+    }
+    $productos=$Con->consultar("SELECT * FROM `Productos` WHERE `Productos`.`Descuento` = 0".$add1.$add2.$add3.";");
     $ofertas=$Con->consultar("SELECT * FROM `Productos` WHERE `Productos`.`Descuento` != 0");
     $array2=$Con->consultar("SELECT * FROM `carrito`"); 
     $carrito=$Con->IdProducto($array2);
@@ -163,52 +178,49 @@
                     </div>
                     <!-- <a href="#" class="btnAgregarCarrito1">Agregar al Carrito</a> -->
                 </div>
-            <?php
-                if($producto['ID_PRODUCTO']==11){
-                    break;
-                }
-            }?>
+            <?php }?>
             </div>
         </section>
 
     </div>
 
     <div class="dos">
-        <form action="/action_page.php" class="form">
+        <form method="GET">
             <h2>Categorías</h2>
-            <input type="radio" id="perro" name="animal" value="Perro">
+            <input type="radio" id="perro" name="txtAnimales" value="Perro">
             <label for="perro">Perro</label>
             <br>
-            <input type="radio" id="gato" name="animal" value="Gato">
+            <input type="radio" id="gato" name="txtAnimales" value="Gato">
             <label for="gato">Gato</label>
             <br>
-            <input type="radio" id="otros" name="animal" value="Otros">
+            <input type="radio" id="otros" name="txtAnimales" value="Otros">
             <label for="otros">Otros</label>
-        </form>
         <hr>
-        <form action="/action_page.php" class="form">
             <h2>Productos</h2>
-            <input type="radio" id="comida" name="productos" value="Comida">
+            <input type="radio" id="comida" name="txtProductos" value="Comida">
             <label for="comida">Comida</label>
             <br>
-            <input type="radio" id="juguetes" name="productos" value="Juguetes">
+            <input type="radio" id="juguetes" name="txtProductos" value="Juguetes">
             <label for="juguetes">Juguetes</label>
             <br>
-            <input type="radio" id="higiene" name="productos" value="Higiene">
+            <input type="radio" id="higiene" name="txtProductos" value="Higiene">
             <label for="higiene">Higiene</label>
             <br>
-            <input type="radio" id="ropa" name="productos" value="Ropa">
+            <input type="radio" id="ropa" name="txtProductos" value="Ropa">
             <label for="ropa">Ropa</label>
             <br>
-            <input type="radio" id="otrosp" name="productos" value="OtrosP">
+            <input type="radio" id="otrosp" name="txtProductos" value="Otros">
             <label for="otrosp">Otros</label>
-        </form>
         <hr>
-        <form action="/action_page.php" class="form">
             <h2>Precio</h2>
-            S/.5
-            <input type="range" id="a" name="a" value="200">
-            S/.200
+            <input type="radio" id="mayor" name="txtPrecios" value="DESC">
+            <label for="mayor">De mayor a menor</label>
+            <br>
+            <input type="radio" id="menor" name="txtPrecios" value="ASC">
+            <label for="menor">De menor a mayor</label>
+        <div class="centrar">
+            <button type="submit" name="Filtro" class="btnFiltrar">Filtrar</button>
+        </div>
         </form>
     </div>
 

@@ -79,12 +79,23 @@ h1{
     text-align: center;
     transition: transform 80ms ease-in;
 }
+.btnFiltrar{
+    margin-top: 10%;
+    border: 50%;
+    display: block;
+    width: 50%;
+    border-radius: 10px;
+    border: none;
+    background-color: yellow;
+    font-size: large;
+    transition: transform 80ms ease-in;
+}
 .centrar{
     display: flex;
     justify-content: center;
 }
 
-.btnAgregarCarrito1:active {
+button:active {
 	transform: scale(0.95);
 }
 @media (max-width: 1070px) {
