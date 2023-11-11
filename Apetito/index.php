@@ -49,7 +49,7 @@ if (empty($array2) && isset($_SESSION["txtEmail"])) {
     <link rel="icon" href="imgs/logopet.png" type="image/x-icon">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;400;500;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;400;500;800;900&display=swap');
     </style>
 </head>
 
@@ -90,59 +90,59 @@ if (empty($array2) && isset($_SESSION["txtEmail"])) {
             <div class="carruseles" id="slider">
                 <?php
                 foreach ($ofertas as $producto) { ?>
-                    <section class="slider-section">
-                        <div class="ofer">
-                            <img src="<?php echo $producto['IMAGEN']; ?>" alt="">
-                            <div class="des">
-                                <span><?php echo $producto['CATEGORIA']; ?></span>
-                                <h5><?php echo $producto['NOMBRES']; ?></h5>
-                                <div class="precio-ofer">
-                                    <h6>s/<?php echo $producto['PRECIO']; ?></h6>
-                                    <h4>s/<?php echo $producto['PRECIO'] - $producto['Descuento']; ?></h4>
-                                </div>
+                <section class="slider-section">
+                    <div class="ofer">
+                        <img src="<?php echo $producto['IMAGEN']; ?>" alt="">
+                        <div class="des">
+                            <span><?php echo $producto['CATEGORIA']; ?></span>
+                            <h5><?php echo $producto['NOMBRES']; ?></h5>
+                            <div class="precio-ofer">
+                                <h6>s/<?php echo $producto['PRECIO']; ?></h6>
+                                <h4>s/<?php echo $producto['PRECIO'] - $producto['Descuento']; ?></h4>
                             </div>
-                            <div class="centrar">
-                                <form method="post">
-                                    <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO']; ?>">
-                                    <?php
+                        </div>
+                        <div class="centrar">
+                            <form method="post">
+                                <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO']; ?>">
+                                <?php
                                     if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])) {
                                         echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
                                     } else {
                                         echo '<button type="submit" name="agregar" class="btnAgregarCarrito1">Agregar al Carrito</button>';
                                     }
                                     ?>
-                                </form>
-                            </div>
+                            </form>
                         </div>
-                    </section>
+                    </div>
+                </section>
                 <?php } ?>
                 <?php
                 foreach ($ofertas as $producto) { ?>
-                    <section class="slider-section">
-                        <div class="ofer">
-                            <img src="<?php echo $producto['IMAGEN']; ?>" alt="">
-                            <div class="des">
-                                <span><?php echo $producto['CATEGORIA']; ?></span>
-                                <h5><?php echo $producto['NOMBRES']; ?></h5>
-                                <div class="precio-ofer">
-                                    <h6>s/<?php echo $producto['PRECIO']; ?></h6>
-                                    <h4>s/<?php echo $producto['PRECIO'] - $producto['Descuento']; ?></h4>
-                                </div>
+                <section class="slider-section">
+                    <div class="ofer">
+                        <img src="<?php echo $producto['IMAGEN']; ?>" alt="">
+                        <div class="des">
+                            <span><?php echo $producto['CATEGORIA']; ?></span>
+                            <h5><?php echo $producto['NOMBRES']; ?></h5>
+                            <div class="precio-ofer">
+                                <h6>s/<?php echo $producto['PRECIO']; ?></h6>
+                                <h4>s/<?php echo $producto['PRECIO'] - $producto['Descuento']; ?></h4>
                             </div>
-                            <div class="centrar">
-                                <form method="post">
-                                    <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO']; ?>">
-                                    <?php
+                        </div>
+                        <div class="centrar">
+                            <form method="post">
+                                <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO']; ?>">
+                                <?php
                                     if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])) {
                                         echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
                                     } else {
                                         echo '<button type="submit" name="agregar" class="btnAgregarCarrito1">Agregar al Carrito</button>';
                                     }
                                     ?>
-                                </form>
-                            </div>
+                            </form>
                         </div>
-                    </section>
+                    </div>
+                </section>
                 <?php } ?>
             </div>
             <div class="btn-left">&#60</div>
@@ -246,7 +246,10 @@ if (empty($array2) && isset($_SESSION["txtEmail"])) {
 
     <section id="encuentranos">
         <h2>Aquí estamos📍</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3279.333750313562!2d-76.96481140097565!3d-12.19352993171234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b974a8e5d095%3A0xa946812edb1483b8!2sApetito%20Pet%20Shop!5e0!3m2!1ses-419!2spe!4v1695263154154!5m2!1ses-419!2spe" width="100%" height="400vh" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3279.333750313562!2d-76.96481140097565!3d-12.19352993171234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b974a8e5d095%3A0xa946812edb1483b8!2sApetito%20Pet%20Shop!5e0!3m2!1ses-419!2spe!4v1695263154154!5m2!1ses-419!2spe"
+            width="100%" height="400vh" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
         </iframe>
     </section>
     <hr class="line-footer">
@@ -270,6 +273,31 @@ if (empty($array2) && isset($_SESSION["txtEmail"])) {
     </footer>
     <script src="js/script.js"></script>
     <script src="js/carrusel.js"></script>
+    <script>
+    window.addEventListener('mouseover', initLandbot, {
+        once: true
+    });
+    window.addEventListener('touchstart', initLandbot, {
+        once: true
+    });
+    var myLandbot;
+
+    function initLandbot() {
+        if (!myLandbot) {
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.addEventListener('load', function() {
+                myLandbot = new Landbot.Popup({
+                    configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-1779369-UUH5GKWP3RA4OD1O/index.json',
+                });
+            });
+            s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.js';
+            var x = document.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s, x);
+        }
+    }
+    </script>
 </body>
 
 </html>
