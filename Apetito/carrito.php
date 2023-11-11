@@ -1,34 +1,35 @@
 <?php include("bd/conexion.php"); ?>
 <?php
-    $Subtotal=0;
-    $Con = new conexion();
-    if(isset($_POST['txtItem'])){
-        $Item=$_POST['txtItem'];
-        $sql="DELETE FROM carrito WHERE `carrito`.`id_Carrito` = $Item;";
-        $Con->ejecutar($sql);
-    }
-    if(isset($_POST['sumar'])){
-        $Prod=$_POST['prod'];
-        $Cant=$_POST['cant'];
-        $Cant=$Cant+1;
-        $sql="UPDATE `carrito` SET `Cantidad` = '$Cant' WHERE `carrito`.`id_Carrito` = $Prod";
+$Subtotal = 0;
+$Con = new conexion();
+if (isset($_POST['txtItem'])) {
+    $Item = $_POST['txtItem'];
+    $sql = "DELETE FROM carrito WHERE `carrito`.`id_Carrito` = $Item;";
+    $Con->ejecutar($sql);
+}
+if (isset($_POST['sumar'])) {
+    $Prod = $_POST['prod'];
+    $Cant = $_POST['cant'];
+    $Cant = $Cant + 1;
+    $sql = "UPDATE `carrito` SET `Cantidad` = '$Cant' WHERE `carrito`.`id_Carrito` = $Prod";
+    $Con->ejecutar($sql);
+    header("location:carrito.php");
+}
+if (isset($_POST['restar'])) {
+    $Prod = $_POST['prod'];
+    $Cant = $_POST['cant'];
+    if ($Cant > 1) {
+        $Cant = $Cant - 1;
+        $sql = "UPDATE `carrito` SET `Cantidad` = '$Cant' WHERE `carrito`.`id_Carrito` = $Prod";
         $Con->ejecutar($sql);
         header("location:carrito.php");
     }
-    if(isset($_POST['restar'])){
-        $Prod=$_POST['prod'];
-        $Cant=$_POST['cant'];
-        if($Cant>1){
-            $Cant=$Cant-1;
-            $sql="UPDATE `carrito` SET `Cantidad` = '$Cant' WHERE `carrito`.`id_Carrito` = $Prod";
-            $Con->ejecutar($sql);
-            header("location:carrito.php");
-        }
-    }
-    $productos=$Con->consultar("SELECT IMAGEN, NOMBRES, PRECIO, Descuento, id_Carrito, Cantidad FROM `carrito` C INNER JOIN productos P ON P.ID_PRODUCTO = C.id_Producto");
+}
+$productos = $Con->consultar("SELECT IMAGEN, NOMBRES, PRECIO, Descuento, id_Carrito, Cantidad FROM `carrito` C INNER JOIN productos P ON P.ID_PRODUCTO = C.id_Producto");
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,17 +37,18 @@
     <link rel="stylesheet" href="css/carrito.css">
     <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="css/style.css">
-    
-    
+
+
     <link rel="icon" href="imgs/logopet.png" type="image/x-icon">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;400;500;800;900&display=swap');
     </style>
 </head>
+
 <body>
     <section id="header">
         <a href="index.php"><img src="imgs/logopet.png" alt="" class="logo"></a>
-        
+
         <button class="lista">
             <img src="imgs/list.svg">
         </button>
@@ -69,65 +71,65 @@
     </div>
 
     <?php
-    if(empty($productos)){
+    if (empty($productos)) {
         echo "<h1>El carrito está vacío.</h1><br>";
-    }else{?>
-    <?php foreach($productos as $producto){?>
-        <div class="contenedorcar">
-            <img class="imagencar" src="<?php echo $producto['IMAGEN'];?>" alt="">
-            <p class="textocar"><?php echo $producto['NOMBRES'];?></p>
-            <p class="numeroscar">S/.<?php echo ($producto['PRECIO']-$producto['Descuento']);?></p>
-            <div class="cantidad-control">
-            Cantidad:
-                <form method="post">
-                    <input type="hidden" name="cant" value="<?php echo $producto['Cantidad'];?>">
-                    <input type="hidden" name="prod" value="<?php echo $producto['id_Carrito'];?>">
-                    <button type="submit" name="restar"><a>-</a></button>
-                    <a><?php echo $producto['Cantidad'];?></a>
-                    <button type="submit" name="sumar"><a>+</a></button>
-                </form>
-            </div>
-            
-            <form action="#" class="resultado-form">
-                Total: S/
-                <?php
-                    $Total=($producto['Cantidad'])*($producto['PRECIO']-$producto['Descuento']);
-                    $Subtotal=$Subtotal+$Total;
-                ?>
-                <div class="resultado-control">
-                    <b><?php echo $Total;?></b>
+    } else { ?>
+        <?php foreach ($productos as $producto) { ?>
+            <div class="contenedorcar">
+                <img class="imagencar" src="<?php echo $producto['IMAGEN']; ?>" alt="">
+                <p class="textocar"><?php echo $producto['NOMBRES']; ?></p>
+                <p class="numeroscar">S/.<?php echo ($producto['PRECIO'] - $producto['Descuento']); ?></p>
+                <div class="cantidad-control">
+                    Cantidad:
+                    <form method="post">
+                        <input type="hidden" name="cant" value="<?php echo $producto['Cantidad']; ?>">
+                        <input type="hidden" name="prod" value="<?php echo $producto['id_Carrito']; ?>">
+                        <button type="submit" name="restar"><a>-</a></button>
+                        <a><?php echo $producto['Cantidad']; ?></a>
+                        <button type="submit" name="sumar"><a>+</a></button>
+                    </form>
                 </div>
-            </form>
-            <div id="eliminar">
-            <form method="post">
-                <input type="hidden" name="txtItem" value="<?php echo $producto['id_Carrito'];?>">
-                <button type="submit" name="wishlist-submit">
-                    <img src="imgs/basura-eliminar.png" alt="">
-                </button>
-            </form>
-            </div>  
-        </div><br>
-        <hr><br>
-    <?php }?>
-    <?php }?>
+
+                <form action="#" class="resultado-form">
+                    Total: S/
+                    <?php
+                    $Total = ($producto['Cantidad']) * ($producto['PRECIO'] - $producto['Descuento']);
+                    $Subtotal = $Subtotal + $Total;
+                    ?>
+                    <div class="resultado-control">
+                        <b><?php echo $Total; ?></b>
+                    </div>
+                </form>
+                <div id="eliminar">
+                    <form method="post">
+                        <input type="hidden" name="txtItem" value="<?php echo $producto['id_Carrito']; ?>">
+                        <button type="submit" name="wishlist-submit">
+                            <img src="imgs/basura-eliminar.png" alt="">
+                        </button>
+                    </form>
+                </div>
+            </div><br>
+            <hr><br>
+        <?php } ?>
+    <?php } ?>
 
     <?php
-    if(!empty($productos)){?>
+    if (!empty($productos)) { ?>
         <div class="ofer-container">
             <div class="prod">
-                
+
                 <div class="des">
                     <span><b>TOTAL A PAGAR</b></span>
-                    <p class="texto-rojo" style="font-size: 50px">S/.<?php echo $Subtotal;?></p>
+                    <p class="texto-rojo" style="font-size: 50px">S/.<?php echo $Subtotal; ?></p>
                 </div>
                 <a href="../Apetito/assets/succes.html" class="btnAgregarCarrito1">Hacer pedido</a>
             </div>
         </div>
-    <?php }?>
-    
+    <?php } ?>
 
 
-    
+
+
 
     <hr class="line-footer">
     <footer id="footer">
@@ -150,4 +152,5 @@
     <script src="js/script.js"></script><!-- 
     <script src="js/carrito.js"></script> -->
 </body>
+
 </html>

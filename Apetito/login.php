@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +12,11 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;400;500;800;900&display=swap');
     </style>
 </head>
+
 <body>
     <section id="header">
         <a href="index.php"><img src="imgs/logopet.png" alt="" class="logo"></a>
-        
+
         <button class="lista">
             <img src="imgs/list.svg">
         </button>
@@ -40,8 +41,8 @@
             <div class="form-container crear-cuenta-container">
                 <form method="post">
                     <?php
-                    include("conn.php");
-                    include("controlador_crearUsuario.php");
+                    include("bd/conn.php");
+                    include("bd/controlador_crearUsuario.php");
                     ?>
                     <h1>Crear cuenta</h1>
                     <input type="text" name="nombre" placeholder="Nombre" />
@@ -58,8 +59,8 @@
             <div class="form-container iniciar-sesion-container">
                 <form method="post">
                     <?php
-                    include("conn.php");
-                    include("controlador_login.php");
+                    include("bd/conn.php");
+                    include("bd/controlador_login.php");
                     ?>
                     <h1>Iniciar Sesión</h1>
                     <input type="email" name="txtEmail" placeholder="Correo"><!--name:txtEmail-->
@@ -107,8 +108,9 @@
             <a href="" class="libro-reclamaciones-logo"><img src="imgs/libro-reclamaciones.png" alt=""></a>
         </div>
     </footer>
-    
+
     <script src="js/login.js"></script>
     <script src="js/script.js"></script>
 </body>
+
 </html>
