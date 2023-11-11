@@ -9,7 +9,7 @@
     }if(isset($_GET['usuario'])){
         echo "<script>alert('Bienvenido');</script>";
     }
-    $productos=$Con->consultar("SELECT * FROM `Productos`");
+    $ofertas=$Con->consultar("SELECT * FROM `Productos` WHERE `Productos`.`Descuento` != 0");
     $array2=$Con->consultar("SELECT * FROM `carrito`"); 
     $carrito=$Con->IdProducto($array2);
 ?>
@@ -64,8 +64,7 @@
         <div class="container-carousel">
             <div class="carruseles" id="slider">
             <?php 
-                $subarray = array_slice($productos, 8);
-            foreach($subarray as $producto){?>
+            foreach($ofertas as $producto){?>
                 <section class="slider-section">
                     <div class="ofer">
                         <img src="<?php echo $producto['IMAGEN'];?>" alt="">
@@ -73,8 +72,8 @@
                             <span><?php echo $producto['CATEGORIA'];?></span>
                             <h5><?php echo $producto['NOMBRES'];?></h5>
                             <div class="precio-ofer">
-                                <h6>s/<?php echo $producto['PRECIO']*1.2;?></h6>
-                                <h4>s/<?php echo $producto['PRECIO'];?></h4>
+                                <h6>s/<?php echo $producto['PRECIO'];?></h6>
+                                <h4>s/<?php echo $producto['PRECIO']-$producto['Descuento'];?></h4>
                             </div>
                         </div>
                         <div class="centrar">
@@ -94,8 +93,7 @@
                 </section>
             <?php } ?>
             <?php 
-                $subarray = array_slice($productos, 8);
-            foreach($subarray as $producto){?>
+            foreach($ofertas as $producto){?>
                 <section class="slider-section">
                     <div class="ofer">
                         <img src="<?php echo $producto['IMAGEN'];?>" alt="">
@@ -103,8 +101,8 @@
                             <span><?php echo $producto['CATEGORIA'];?></span>
                             <h5><?php echo $producto['NOMBRES'];?></h5>
                             <div class="precio-ofer">
-                                <h6>s/<?php echo $producto['PRECIO']*1.2;?></h6>
-                                <h4>s/<?php echo $producto['PRECIO'];?></h4>
+                                <h6>s/<?php echo $producto['PRECIO'];?></h6>
+                                <h4>s/<?php echo $producto['PRECIO']-$producto['Descuento'];?></h4>
                             </div>
                         </div>
                         <div class="centrar">
