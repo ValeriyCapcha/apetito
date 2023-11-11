@@ -25,7 +25,7 @@
             header("location:carrito.php");
         }
     }
-    $productos=$Con->consultar("SELECT IMAGEN, NOMBRES, PRECIO, id_Carrito, Cantidad FROM `carrito` C INNER JOIN productos P ON P.ID_PRODUCTO = C.id_Producto");
+    $productos=$Con->consultar("SELECT IMAGEN, NOMBRES, PRECIO, Descuento, id_Carrito, Cantidad FROM `carrito` C INNER JOIN productos P ON P.ID_PRODUCTO = C.id_Producto");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,11 +68,15 @@
         <h2>Mi carrito</h2>
     </div>
 
+    <?php
+    if(empty($productos)){
+        echo "<h1>El carrito está vacío.</h1><br>";
+    }else{?>
     <?php foreach($productos as $producto){?>
         <div class="contenedorcar">
             <img class="imagencar" src="<?php echo $producto['IMAGEN'];?>" alt="">
             <p class="textocar"><?php echo $producto['NOMBRES'];?></p>
-            <p class="numeroscar">S/.<?php echo $producto['PRECIO'];?></p>
+            <p class="numeroscar">S/.<?php echo ($producto['PRECIO']-$producto['Descuento']);?></p>
             <div class="cantidad-control">
             Cantidad:
                 <form method="post">
@@ -87,7 +91,7 @@
             <form action="#" class="resultado-form">
                 Total: S/
                 <?php
-                    $Total=$producto['Cantidad']*$producto['PRECIO'];
+                    $Total=($producto['Cantidad'])*($producto['PRECIO']-$producto['Descuento']);
                     $Subtotal=$Subtotal+$Total;
                 ?>
                 <div class="resultado-control">
@@ -105,19 +109,25 @@
         </div><br>
         <hr><br>
     <?php }?>
+    <?php }?>
 
-
-    <div class="ofer-container">
-        <div class="prod">
-            
-            <div class="des">
-                <span><b>TOTAL A PAGAR</b></span>
-                <p class="texto-rojo" style="font-size: 50px">S/.<?php echo $Subtotal;?></p>
+    <?php
+    if(!empty($productos)){?>
+        <div class="ofer-container">
+            <div class="prod">
+                
+                <div class="des">
+                    <span><b>TOTAL A PAGAR</b></span>
+                    <p class="texto-rojo" style="font-size: 50px">S/.<?php echo $Subtotal;?></p>
+                </div>
+                <a href="../Apetito/assets/succes.html" class="btnAgregarCarrito1">Hacer pedido</a>
             </div>
-            <a href="../Apetito/assets/succes.html" class="btnAgregarCarrito1">Hacer pedido</a>
         </div>
+    <?php }?>
+    
 
-    </div>
+
+    
 
     <hr class="line-footer">
     <footer id="footer">

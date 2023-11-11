@@ -81,7 +81,7 @@
                                 <h5><?php echo $producto['NOMBRES'];?></h5>
                                 <div class="precio-ofer">
                                     <h6>s/<?php echo $producto['PRECIO'];?></h6>
-                                    <h4>s/<?php echo $producto['PRECIO']*(100-$producto['Descuento'])/100;?></h4>
+                                    <h4>s/<?php echo $producto['PRECIO']-$producto['Descuento'];?></h4>
                                 </div>
                             </div>
                             <div class="centrar">
@@ -110,7 +110,7 @@
                                 <h5><?php echo $producto['NOMBRES'];?></h5>
                                 <div class="precio-ofer">
                                     <h6>s/<?php echo $producto['PRECIO'];?></h6>
-                                    <h4>s/<?php echo $producto['PRECIO']*(100-$producto['Descuento'])/100;?></h4>
+                                    <h4>s/<?php echo $producto['PRECIO']-$producto['Descuento'];?></h4>
                                 </div>
                             </div>
                             <div class="centrar">
