@@ -1,3 +1,32 @@
+<?php include("bd/conexion.php"); ?>
+<?php
+session_start();
+$Con = new conexion();
+$IdUsuario = 0;
+
+//Sesion
+if (isset($_SESSION["txtEmail"])) {
+    $correo = $_SESSION["txtEmail"];
+    $usuario = $Con->consultar("SELECT * FROM `usuario` WHERE `usuario`.`Correo` = '$correo'");
+    $ObtenerIdUsuario = $Con->IdUsuario($usuario);
+    $IdUsuario = $ObtenerIdUsuario[0];
+}
+if (isset($_POST['cerrar'])) {
+    session_unset();
+    session_destroy();
+    header("location:login.php");
+}
+
+//Saludo solo si el carrito esta vacío, dando a entender que solo se dará la primera vez que uses la página o 
+//la vuelvas a usar luego de comprar algo.
+$array2 = $Con->consultar("SELECT * FROM `carrito` WHERE id_Usuario = $IdUsuario");
+if (empty($array2) && isset($_SESSION["txtEmail"])) {
+    $ObtenerNombre = $Con->Nombre($usuario);
+    $nombre = $ObtenerNombre[0];
+    echo "<script>alert('Bienvenido " . $nombre . "');</script>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,7 +35,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>aPETito Pet Shop</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/grid.css">
     <link rel="icon" href="imgs/logopet.png" type="image/x-icon">
 
     <style>
@@ -24,17 +53,22 @@
 
         <nav class="nav">
             <ul class="navbar">
-                <li><a class="active" href="index.php">Ofertas</a></li>
+                <li><a href="index.php">Ofertas</a></li>
                 <li><a href="Productos.php">Productos</a></li>
                 <li><a href="servicios.php">Baño de mascotas</a></li>
                 <li><a href="index.php#sobre-nosotros">Nosotros</a></li>
                 <li><a href="index.php#encuentranos">Encuentranos</a></li>
-                <li><a href="login.php"><img src="imgs/login.png" alt=""></a></li>
+                <?php if(isset($_SESSION["txtEmail"])){ ?>
+                    <li><a href="user.php"><img src="imgs/login.png" alt=""></a></li>
+                <?php }else{ ?>
+                    <li><a href="login.php"><img src="imgs/login.png" alt=""></a></li>
+                <?php }?>
                 <li><a href="carrito.php"><img src="imgs/shopcar.png" alt=""></a></li>
             </ul>
         </nav>
     </section>
 
+    <!--
     <main>
         <h2 class="subtituloAdmin">VENTAS</h2>
         <div class="adminVentas">
@@ -88,6 +122,35 @@
 
         </div>
     </main>
+    -->
+    <?php if(isset($_SESSION["txtEmail"])){ ?>
+        <div class="uno">
+            <h1>Mi Cuenta</h1>
+        </div>
+        <div class="dos">
+        <?php foreach ($usuario as $usuarios) { ?>
+            <h2>Nombre de usuario: 
+                <?php  
+                    echo $usuarios['Nombre'];
+                ;?>
+            </h2>
+            <h2>Correo: 
+                <?php  
+                    echo $usuarios['Correo'];
+                ;?>
+            </h2>
+            <h2>Teléfono: 
+                <?php  
+                    echo $usuarios['Telefono'];
+                ;?>
+            </h2>
+        <?php } ?>
+            <form method="post">
+                <button type="submit" name="cerrar" class="btnAgregarCarrito1">Cerrar Sesión</button>
+            </form>
+        </div>
+    <?php } ?>
+
 
     <!---->
     <hr class="line-footer">

@@ -9,7 +9,7 @@ if (!empty($_POST["btnIngresar"])) {
         $sql = $connn->query("SELECT * FROM usuario WHERE Correo = '$correo' AND Password='$clave'");
         if ($datos = $sql->fetch_object()) {
             $_SESSION["txtEmail"]= $correo;
-            header("location:index.php?usuario=1");
+            header("location:user.php");
         } else {
             echo "<div><h3 style='color:red;'>DATOS INCORRECTOS</h3></div>";
         }

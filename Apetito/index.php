@@ -27,13 +27,6 @@ $ofertas = $Con->consultar("SELECT * FROM `Productos` WHERE `Productos`.`Descuen
 $array2 = $Con->consultar("SELECT * FROM `carrito` WHERE id_Usuario = $IdUsuario");
 $carrito = $Con->IdProducto($array2);
 
-//Saludo solo si el carrito esta vacío, dando a entender que solo se dará la primera vez que uses la página o 
-//la vuelvas a usar luego de comprar algo.
-if (empty($array2) && isset($_SESSION["txtEmail"])) {
-    $ObtenerNombre = $Con->Nombre($usuario);
-    $nombre = $ObtenerNombre[0];
-    echo "<script>alert('Bienvenido " . $nombre . "');</script>";
-}
 
 ?>
 <!DOCTYPE html>
@@ -68,7 +61,11 @@ if (empty($array2) && isset($_SESSION["txtEmail"])) {
                 <li><a href="servicios.php">Baño de mascotas</a></li>
                 <li><a href="index.php#sobre-nosotros">Nosotros</a></li>
                 <li><a href="index.php#encuentranos">Encuentranos</a></li>
-                <li><a href="login.php"><img src="imgs/login.png" alt=""></a></li>
+                <?php if(isset($_SESSION["txtEmail"])){ ?>
+                    <li><a href="user.php"><img src="imgs/login.png" alt=""></a></li>
+                <?php }else{ ?>
+                    <li><a href="login.php"><img src="imgs/login.png" alt=""></a></li>
+                <?php }?>
                 <li><a href="carrito.php"><img src="imgs/shopcar.png" alt=""></a></li>
             </ul>
         </nav>
@@ -155,7 +152,7 @@ if (empty($array2) && isset($_SESSION["txtEmail"])) {
     <br>
 
     <section id="ver">
-        <a href="Productos.html" class="btnVermas">Ver mas</a>
+        <a href="Productos.php" class="btnVermas">Ver mas</a>
     </section>
     <br><br>
 

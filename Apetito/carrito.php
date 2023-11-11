@@ -73,7 +73,11 @@
                 <li><a href="servicios.php">Baño de mascotas</a></li>
                 <li><a href="index.php#sobre-nosotros">Nosotros</a></li>
                 <li><a href="index.php#encuentranos">Encuentranos</a></li>
-                <li><a href="login.php"><img src="imgs/login.png" alt=""></a></li>
+                <?php if(isset($_SESSION["txtEmail"])){ ?>
+                    <li><a href="user.php"><img src="imgs/login.png" alt=""></a></li>
+                <?php }else{ ?>
+                    <li><a href="login.php"><img src="imgs/login.png" alt=""></a></li>
+                <?php }?>
                 <li><a class="active" href="carrito.php"><img src="imgs/shopcar.png" alt=""></a></li>
             </ul>
         </nav>
