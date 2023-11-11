@@ -1,3 +1,34 @@
+<?php
+include("bd/conn.php");
+
+if (isset($_POST['nameh'])) {
+    $NOMBRE_APELLIDO_CLIENTE = $_POST['nameh'];
+    $NOMBRE_MASCOTA = $_POST['namem'];
+    $Email = $_POST['email'];
+    $Telefono_Cita = $_POST['phone'];
+    $Raza_Mascota = $_POST['raza'];
+    $Tipo_Bano = $_POST['value'];
+    $Fecha_Cita = $_POST['fecha'];
+    $Id_Hora_Cita = $_POST['value'];
+
+    $insertar = "INSERT INTO citas_servicios VALUES ('$NOMBRE_APELLIDO_CLIENTE','$NOMBRE_MASCOTA', '$Email','$Telefono_Cita','$Raza_Mascota'.'$Tipo_Bano'.'$Fecha_Cita'.'$Id_Hora_Cita' )";
+
+    $query = mysqli_query($conn,$insertar);
+
+    if ($query) {
+        
+        echo "<script> alert('Cita agendada con exito'); 
+        location.href='.../index.php';
+        </script>";
+
+    }else{
+        echo "<script> alert('Cita no agendada'); 
+        location.href='.../servicios.php';
+        </script>";
+
+}
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -43,32 +74,33 @@
             </div>
             <div class="Formulario">
                 <h2>Datos</h2>
-                <form action="/action_page.php" autocomplete="on" class="Form">
-                    <input type="text" id="nameh" name="nameh" placeholder="Nombres y Apellidos">
-                    <input type="text" id="namem" name="namem" placeholder="Nombre de la Mascota">
+                <form method="POST" name="Formulario_Bano" action=".../conexion.php" autocomplete="on" class="Form">
+                    <input type="text" id="NOMBRE_APELLIDO_CLIENTE" name="nameh" placeholder="Nombres y Apellidos">
+                    <input type="text" id="NOMBRE_MASCOTA" name="namem" placeholder="Nombre de la Mascota">
                     
-                    <input type="email" id="email" name="email" placeholder="Correo">
-                    <input type="tel" id="phone" name="phone" placeholder="Celular" pattern="[0-9]{3}[0-9]{3}[0-9]{3}">
+                    <input type="email" id="Email" name="email" placeholder="Correo">
+                    <input type="tel" id="Telefono_Cita" name="phone" placeholder="Celular" pattern="[0-9]{3}[0-9]{3}[0-9]{3}">
                     
-                    <input type="text" id="raza" name="raza" placeholder="Raza">
-                    <select id="banho" name="banho">
-                        <option value="cosmetico">Baño cosmético</option>
-                        <option value="antipulgas">Baño antipulgas</option>
-                        <option value="medicado">Baño medicado</option>
-                        <option value="antisarnico">Baño antisárnico</option>
-                        <option value="corte">Baño y corte de pelo</option>
+                    <input type="text" id="Raza_Mascota" name="raza" placeholder="Raza">
+                    <select id="Tipo_Bano" name="banho">
+                        <option value="1">Baño cosmético</option>
+                        <option value="2">Baño antipulgas</option>
+                        <option value="3">Baño medicado</option>
+                        <option value="4">Baño antisárnico</option>
+                        <option value="5">Baño y corte de pelo</option>
                     </select>
                     
-                    <input type="date" id="fecha" name="fecha" title="Fecha">
-                    <select id="hora" name="hora" title="Horario">
-                        <option value="9">9:00-10:00</option>
-                        <option value="10">10:00-12:00</option>
-                        <option value="2">2:00-3:00</option>
-                        <option value="3">3:00-4:00</option>
-                        <option value="4">4:00-5:00</option>
+                    <input type="date" id="Fecha_Cita" name="fecha" title="Fecha">
+                    <select id="Id_Hora_Cita" name="hora" title="Horario">
+                        <option value="1">9:00-10:00</option>
+                        <option value="2">10:00-12:00</option>
+                        <option value="3">2:00-3:00</option>
+                        <option value="4">3:00-4:00</option>
+                        <option value="5">4:00-5:00</option>
                     </select>
                     <br><br>
                     <input type="submit" value="INGRESAR" class="Boton">
+
                 </form>
             </div>
         </div>
