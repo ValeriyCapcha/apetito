@@ -1,31 +1,44 @@
 <?php include("bd/conexion.php"); ?>
 <?php
-$Subtotal = 0;
-$Con = new conexion();
-if (isset($_POST['txtItem'])) {
-    $Item = $_POST['txtItem'];
-    $sql = "DELETE FROM carrito WHERE `carrito`.`id_Carrito` = $Item;";
-    $Con->ejecutar($sql);
-}
-if (isset($_POST['sumar'])) {
-    $Prod = $_POST['prod'];
-    $Cant = $_POST['cant'];
-    $Cant = $Cant + 1;
-    $sql = "UPDATE `carrito` SET `Cantidad` = '$Cant' WHERE `carrito`.`id_Carrito` = $Prod";
-    $Con->ejecutar($sql);
-    header("location:carrito.php");
-}
-if (isset($_POST['restar'])) {
-    $Prod = $_POST['prod'];
-    $Cant = $_POST['cant'];
-    if ($Cant > 1) {
-        $Cant = $Cant - 1;
+    session_start();
+    $Subtotal = 0;
+    $Con = new conexion();
+    $IdUsuario = 0;
+    //Sesion
+    if(isset($_SESSION["txtEmail"])){
+        $correo = $_SESSION["txtEmail"];
+        $usuario=$Con->consultar("SELECT * FROM `usuario` WHERE `usuario`.`Correo` = '$correo'");
+        $ObtenerIdUsuario = $Con->IdUsuario($usuario);
+        $IdUsuario = $ObtenerIdUsuario[0];
+    }
+    //Eliminar
+    if (isset($_POST['txtItem'])) {
+        $Item = $_POST['txtItem'];
+        $sql = "DELETE FROM carrito WHERE `carrito`.`id_Carrito` = $Item;";
+        $Con->ejecutar($sql);
+    }
+    //Sumar
+    if (isset($_POST['sumar'])) {
+        $Prod = $_POST['prod'];
+        $Cant = $_POST['cant'];
+        $Cant = $Cant + 1;
         $sql = "UPDATE `carrito` SET `Cantidad` = '$Cant' WHERE `carrito`.`id_Carrito` = $Prod";
         $Con->ejecutar($sql);
         header("location:carrito.php");
     }
-}
-$productos = $Con->consultar("SELECT IMAGEN, NOMBRES, PRECIO, Descuento, id_Carrito, Cantidad FROM `carrito` C INNER JOIN productos P ON P.ID_PRODUCTO = C.id_Producto");
+    //Restar
+    if (isset($_POST['restar'])) {
+        $Prod = $_POST['prod'];
+        $Cant = $_POST['cant'];
+        if ($Cant > 1) {
+            $Cant = $Cant - 1;
+            $sql = "UPDATE `carrito` SET `Cantidad` = '$Cant' WHERE `carrito`.`id_Carrito` = $Prod";
+            $Con->ejecutar($sql);
+            header("location:carrito.php");
+        }
+    }
+    $productos = $Con->consultar("SELECT IMAGEN, NOMBRES, PRECIO, Descuento, id_Carrito, Cantidad FROM `carrito` C 
+    INNER JOIN productos P ON P.ID_PRODUCTO = C.id_Producto WHERE C.id_Usuario = $IdUsuario");
 ?>
 <!DOCTYPE html>
 <html lang="en">

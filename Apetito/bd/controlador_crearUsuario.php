@@ -9,7 +9,7 @@ if (!empty($_POST["btnCrearUsuario"])) {
         $clave = $_POST["contraseña"];
         $sql = $connn->query("INSERT INTO usuario(Nombre,Correo,Password,Telefono)VALUES('$nombre','$correo','$clave',$telefono);");
         if ($sql) {
-            echo "<script>alert('USUARIO RESITRADO');</script>";
+            echo "<script>alert('USUARIO REGISTRADO');</script>";
             header("location:index.php");
         } else {
             echo "<div><h3 style='color:red;'>DATOS INCORRECTOS</h3></div>";

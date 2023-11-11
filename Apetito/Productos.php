@@ -1,15 +1,29 @@
 <?php include("bd/conexion.php"); ?>
 <?php
+    session_start();
     $Con = new conexion();
+    $IdUsuario = 0;
     $add1 = "";
     $add2 = "";
     $add3 = "";
-    if(isset($_POST['txtProducto'])){
-        $id_Producto=$_POST['txtProducto'];
-        $id_Usuario=$_POST['txtUsuario'];
-        $sql="INSERT INTO `carrito` (`id_Usuario`, `id_Producto`) VALUES ('$id_Usuario', '$id_Producto');";
-        $Con->ejecutar($sql); 
+    //Sesión
+    if(isset($_SESSION["txtEmail"])){
+        $correo = $_SESSION["txtEmail"];
+        $usuario=$Con->consultar("SELECT * FROM `usuario` WHERE `usuario`.`Correo` = '$correo'");
+        $ObtenerIdUsuario = $Con->IdUsuario($usuario);
+        $IdUsuario = $ObtenerIdUsuario[0];
     }
+    //Añadir al carrito
+    if(isset($_POST['txtProducto'])){
+        if(empty($IdUsuario)){
+            echo "<script>alert('Inicie sesión para poder comprar productos.');</script>";
+        }else{
+            $id_Producto=$_POST['txtProducto'];
+            $sql="INSERT INTO `carrito` (`id_Usuario`, `id_Producto`) VALUES ('$IdUsuario', '$id_Producto');";
+            $Con->ejecutar($sql);
+        }
+    }
+    //Filtros
     if(isset($_POST['txtAnimales'])){
         $FiltroAnimales=$_POST['txtAnimales'];
         $add1=" AND `Productos`.`ANIMAL` = '$FiltroAnimales'";
@@ -24,7 +38,7 @@
     }
     $productos=$Con->consultar("SELECT * FROM `Productos` WHERE `Productos`.`Descuento` = 0".$add1.$add2.$add3.";");
     $ofertas=$Con->consultar("SELECT * FROM `Productos` WHERE `Productos`.`Descuento` != 0");
-    $array2=$Con->consultar("SELECT * FROM `carrito`"); 
+    $array2=$Con->consultar("SELECT * FROM `carrito` WHERE id_Usuario = $IdUsuario"); 
     $carrito=$Con->IdProducto($array2);
 ?>
 <!DOCTYPE html>
@@ -102,7 +116,6 @@
                             <div class="centrar">
                             <form method="post">
                                 <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO'];?>">
-                                <input type="hidden" name="txtUsuario" value="1">
                                 <?php
                                 if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])){
                                     echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
@@ -131,7 +144,6 @@
                             <div class="centrar">
                             <form method="post">
                                 <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO'];?>">
-                                <input type="hidden" name="txtUsuario" value="1">
                                 <?php
                                 if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])){
                                     echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
@@ -166,7 +178,6 @@
                     <div class="centrar">
                     <form method="post">
                         <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO'];?>">
-                        <input type="hidden" name="txtUsuario" value="1">
                         <?php
                         if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])){
                             echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';

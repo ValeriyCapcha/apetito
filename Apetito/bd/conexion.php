@@ -33,5 +33,21 @@
                 return $idcarrito;
             }
         }
+        public function IdUsuario($IdArray = null, $key = "Id_Usuario"){
+            if ($IdArray != null){
+                $IdUsuario = array_map(function ($value) use($key){
+                    return $value[$key];
+                }, $IdArray);
+                return $IdUsuario;
+            }
+        }
+        public function Nombre($IdArray = null, $key = "Nombre"){
+            if ($IdArray != null){
+                $Nombre = array_map(function ($value) use($key){
+                    return $value[$key];
+                }, $IdArray);
+                return $Nombre;
+            }
+        }
     }
 ?>

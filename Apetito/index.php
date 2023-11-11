@@ -1,17 +1,40 @@
 <?php include("bd/conexion.php"); ?>
 <?php
+    session_start();
+    //session_destroy();
     $Con = new conexion();
-    if(isset($_POST['txtProducto'])){
-        $id_Producto=$_POST['txtProducto'];
-        $id_Usuario=$_POST['txtUsuario'];
-        $sql="INSERT INTO `carrito` (`id_Usuario`, `id_Producto`) VALUES ('$id_Usuario', '$id_Producto');";
-        $Con->ejecutar($sql); 
-    }if(isset($_GET['usuario'])){
-        echo "<script>alert('Bienvenido');</script>";
+    $IdUsuario = 0;
+
+    //Sesion
+    if(isset($_SESSION["txtEmail"])){
+        $correo = $_SESSION["txtEmail"];
+        $usuario=$Con->consultar("SELECT * FROM `usuario` WHERE `usuario`.`Correo` = '$correo'");
+        $ObtenerIdUsuario = $Con->IdUsuario($usuario);
+        $IdUsuario = $ObtenerIdUsuario[0];
     }
+    //Carrito
+    if(isset($_POST['txtProducto'])){
+        if(empty($IdUsuario)){
+            echo "<script>alert('Inicie sesión para poder comprar productos.');</script>";
+        }else{
+            $id_Producto=$_POST['txtProducto'];
+            $sql="INSERT INTO `carrito` (`id_Usuario`, `id_Producto`) VALUES ('$IdUsuario', '$id_Producto');";
+            $Con->ejecutar($sql);
+        }
+    }
+
     $ofertas=$Con->consultar("SELECT * FROM `Productos` WHERE `Productos`.`Descuento` != 0");
-    $array2=$Con->consultar("SELECT * FROM `carrito`"); 
+    $array2=$Con->consultar("SELECT * FROM `carrito` WHERE id_Usuario = $IdUsuario"); 
     $carrito=$Con->IdProducto($array2);
+
+    //Saludo solo si el carrito esta vacío, dando a entender que solo se dará la primera vez que uses la página o 
+    //la vuelvas a usar luego de comprar algo.
+    if(empty($array2) && isset($_SESSION["txtEmail"])){
+        $ObtenerNombre = $Con->Nombre($usuario);
+        $nombre = $ObtenerNombre[0];
+        echo "<script>alert('Bienvenido ".$nombre."');</script>";
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -79,7 +102,6 @@
                         <div class="centrar">
                         <form method="post">
                             <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO'];?>">
-                            <input type="hidden" name="txtUsuario" value="1">
                             <?php
                             if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])){
                                 echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
@@ -108,7 +130,6 @@
                         <div class="centrar">
                         <form method="post">
                             <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO'];?>">
-                            <input type="hidden" name="txtUsuario" value="1">
                             <?php
                             if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])){
                                 echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
