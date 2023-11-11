@@ -34,7 +34,6 @@ if (empty($array2) && isset($_SESSION["txtEmail"])) {
     $nombre = $ObtenerNombre[0];
     echo "<script>alert('Bienvenido " . $nombre . "');</script>";
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -278,7 +277,8 @@ foreach ($ofertas as $producto) { ?>
     </div>
     <div class="ubicacion">
         <h4>UBICANOS</h4>
-        <a href="https://maps.app.goo.gl/njPn3YR1Kv2Br38o8" target="_blank"><img src="imgs/ubi.png" alt="">Av. Mateo Pumacahua Villa EL Salvador 15842</a>
+        <a href="https://maps.app.goo.gl/njPn3YR1Kv2Br38o8" target="_blank"><img src="imgs/ubi.png" alt="">Av. Mateo
+            Pumacahua Villa EL Salvador 15842</a>
     </div>
     <div class="horario">
         <h4>HORARIOS</h4>

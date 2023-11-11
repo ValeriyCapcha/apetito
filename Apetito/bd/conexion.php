@@ -4,7 +4,6 @@
         private $usuario='root';
         private $password='';
         private $nombre="apetito";
-
         public function __construct(){
             try{
                 $this->conexion=new PDO("mysql:host=$this->servidor;port=3307;dbname=$this->nombre", $this->usuario,$this->password );
@@ -50,4 +49,3 @@
             }
         }
     }
-?>
