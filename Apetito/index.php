@@ -1,20 +1,22 @@
 <?php include("bd/conexion.php"); ?>
 <?php
-    $Con = new conexion();
-    if(isset($_POST['txtProducto'])){
-        $id_Producto=$_POST['txtProducto'];
-        $id_Usuario=$_POST['txtUsuario'];
-        $sql="INSERT INTO `carrito` (`id_Usuario`, `id_Producto`) VALUES ('$id_Usuario', '$id_Producto');";
-        $Con->ejecutar($sql); 
-    }if(isset($_GET['usuario'])){
-        echo "<script>alert('Bienvenido');</script>";
-    }
-    $ofertas=$Con->consultar("SELECT * FROM `Productos` WHERE `Productos`.`Descuento` != 0");
-    $array2=$Con->consultar("SELECT * FROM `carrito`"); 
-    $carrito=$Con->IdProducto($array2);
+$Con = new conexion();
+if (isset($_POST['txtProducto'])) {
+    $id_Producto = $_POST['txtProducto'];
+    $id_Usuario = $_POST['txtUsuario'];
+    $sql = "INSERT INTO `carrito` (`id_Usuario`, `id_Producto`) VALUES ('$id_Usuario', '$id_Producto');";
+    $Con->ejecutar($sql);
+}
+if (isset($_GET['usuario'])) {
+    echo "<script>alert('Bienvenido');</script>";
+}
+$ofertas = $Con->consultar("SELECT * FROM `Productos` WHERE `Productos`.`Descuento` != 0");
+$array2 = $Con->consultar("SELECT * FROM `carrito`");
+$carrito = $Con->IdProducto($array2);
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,10 +30,11 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;400;500;800;900&display=swap');
     </style>
 </head>
+
 <body>
     <section id="header">
         <a href="index.php"><img src="imgs/logopet.png" alt="" class="logo"></a>
-        
+
         <button class="lista">
             <img src="imgs/list.svg">
         </button>
@@ -48,7 +51,7 @@
             </ul>
         </nav>
     </section>
-    
+
     <section id="hero">
         <div class="video">
             <video src="videos/video_hero.mp4" autoplay loop></video>
@@ -58,69 +61,69 @@
             <img src="imgs/logopet.png" alt="logo" height="180px">
         </div>
     </section>
-    
-    
+
+
     <section id="oferta1">
         <div class="container-carousel">
             <div class="carruseles" id="slider">
-            <?php 
-            foreach($ofertas as $producto){?>
-                <section class="slider-section">
-                    <div class="ofer">
-                        <img src="<?php echo $producto['IMAGEN'];?>" alt="">
-                        <div class="des">
-                            <span><?php echo $producto['CATEGORIA'];?></span>
-                            <h5><?php echo $producto['NOMBRES'];?></h5>
-                            <div class="precio-ofer">
-                                <h6>s/<?php echo $producto['PRECIO'];?></h6>
-                                <h4>s/<?php echo $producto['PRECIO']-$producto['Descuento'];?></h4>
+                <?php
+                foreach ($ofertas as $producto) { ?>
+                    <section class="slider-section">
+                        <div class="ofer">
+                            <img src="<?php echo $producto['IMAGEN']; ?>" alt="">
+                            <div class="des">
+                                <span><?php echo $producto['CATEGORIA']; ?></span>
+                                <h5><?php echo $producto['NOMBRES']; ?></h5>
+                                <div class="precio-ofer">
+                                    <h6>s/<?php echo $producto['PRECIO']; ?></h6>
+                                    <h4>s/<?php echo $producto['PRECIO'] - $producto['Descuento']; ?></h4>
+                                </div>
+                            </div>
+                            <div class="centrar">
+                                <form method="post">
+                                    <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO']; ?>">
+                                    <input type="hidden" name="txtUsuario" value="1">
+                                    <?php
+                                    if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])) {
+                                        echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
+                                    } else {
+                                        echo '<button type="submit" name="agregar" class="btnAgregarCarrito1">Agregar al Carrito</button>';
+                                    }
+                                    ?>
+                                </form>
                             </div>
                         </div>
-                        <div class="centrar">
-                        <form method="post">
-                            <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO'];?>">
-                            <input type="hidden" name="txtUsuario" value="1">
-                            <?php
-                            if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])){
-                                echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
-                            }else{
-                                echo '<button type="submit" name="agregar" class="btnAgregarCarrito1">Agregar al Carrito</button>';
-                            }
-                            ?>
-                        </form>
-                        </div>
-                    </div>
-                </section>
-            <?php } ?>
-            <?php 
-            foreach($ofertas as $producto){?>
-                <section class="slider-section">
-                    <div class="ofer">
-                        <img src="<?php echo $producto['IMAGEN'];?>" alt="">
-                        <div class="des">
-                            <span><?php echo $producto['CATEGORIA'];?></span>
-                            <h5><?php echo $producto['NOMBRES'];?></h5>
-                            <div class="precio-ofer">
-                                <h6>s/<?php echo $producto['PRECIO'];?></h6>
-                                <h4>s/<?php echo $producto['PRECIO']-$producto['Descuento'];?></h4>
+                    </section>
+                <?php } ?>
+                <?php
+                foreach ($ofertas as $producto) { ?>
+                    <section class="slider-section">
+                        <div class="ofer">
+                            <img src="<?php echo $producto['IMAGEN']; ?>" alt="">
+                            <div class="des">
+                                <span><?php echo $producto['CATEGORIA']; ?></span>
+                                <h5><?php echo $producto['NOMBRES']; ?></h5>
+                                <div class="precio-ofer">
+                                    <h6>s/<?php echo $producto['PRECIO']; ?></h6>
+                                    <h4>s/<?php echo $producto['PRECIO'] - $producto['Descuento']; ?></h4>
+                                </div>
+                            </div>
+                            <div class="centrar">
+                                <form method="post">
+                                    <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO']; ?>">
+                                    <input type="hidden" name="txtUsuario" value="1">
+                                    <?php
+                                    if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])) {
+                                        echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
+                                    } else {
+                                        echo '<button type="submit" name="agregar" class="btnAgregarCarrito1">Agregar al Carrito</button>';
+                                    }
+                                    ?>
+                                </form>
                             </div>
                         </div>
-                        <div class="centrar">
-                        <form method="post">
-                            <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO'];?>">
-                            <input type="hidden" name="txtUsuario" value="1">
-                            <?php
-                            if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])){
-                                echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
-                            }else{
-                                echo '<button type="submit" name="agregar" class="btnAgregarCarrito1">Agregar al Carrito</button>';
-                            }
-                            ?>
-                        </form>
-                        </div>
-                    </div>
-                </section>
-            <?php } ?>
+                    </section>
+                <?php } ?>
             </div>
             <div class="btn-left">&#60</div>
             <div class="btn-right">&#62</div>
@@ -134,11 +137,11 @@
     </section>
 
     <br><br>
-    
+
     <section id="NProductos">
         <h2>Nuestros Productos</h2>
         <div class="animales-container">
-            
+
             <div class="animales">
                 <img src="imgs/cute-and-happy-dog.png">
                 <div class="Texto">
@@ -163,19 +166,19 @@
                 </div>
             </div>
         </div>
-    </section> 
+    </section>
 
-    
+
     <section id="Servicios">
         <h2>Nuestros Servicios</h2>
         <a href="servicios.php">
-        <div class="animales-container">
-            <div class="animales">
-                <img src="imgs/servicios.jpg">
-                <div class="Texto">
-                    <h3>Baño de mascotas</h3>
-                    <br>
-                    <p>Brindamos diferentes tipos de baños para mascotas dependiendo de la necesidad del cliente:
+            <div class="animales-container">
+                <div class="animales">
+                    <img src="imgs/servicios.jpg">
+                    <div class="Texto">
+                        <h3>Baño de mascotas</h3>
+                        <br>
+                        <p>Brindamos diferentes tipos de baños para mascotas dependiendo de la necesidad del cliente:
                         <ul>
                             <li>
                                 Baño cosmético
@@ -194,10 +197,11 @@
                             </li>
                         </ul>
 
-                    </p>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div></a>
+        </a>
     </section>
 
     <section id="sobre-nosotros">
@@ -205,9 +209,9 @@
         <div class="sobre-text">
             <h2>SOBRE NOSOTROS</h2>
             <P>Apetito Pet Shop es una pequeña empresa que se dedica a la venta minorista de productos para
-                    mascotas, los cuales son alimentos, juguetes, correas y demás accesorios; además también se
-                    especializa en el cuidado y aseo de perros. La empresa abrió hace 3 años y ya cuenta con una
-                    cartera de clientes fidelizados.</P>
+                mascotas, los cuales son alimentos, juguetes, correas y demás accesorios; además también se
+                especializa en el cuidado y aseo de perros. La empresa abrió hace 3 años y ya cuenta con una
+                cartera de clientes fidelizados.</P>
         </div>
     </section>
 
@@ -222,14 +226,13 @@
             <p>Ser la empresa líder del mercado aumentando los servicios que se brindan en la empresa para
                 lograr dar felicidad y una buena vida a todas las mascotas del país.</p>
         </div>
-    </section> 
- 
+    </section>
+
     <section id="encuentranos">
         <h2>Aquí estamos📍</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3279.333750313562!2d-76.96481140097565!3d-12.19352993171234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b974a8e5d095%3A0xa946812edb1483b8!2sApetito%20Pet%20Shop!5e0!3m2!1ses-419!2spe!4v1695263154154!5m2!1ses-419!2spe" 
-        width="100%" height="400vh" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3279.333750313562!2d-76.96481140097565!3d-12.19352993171234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b974a8e5d095%3A0xa946812edb1483b8!2sApetito%20Pet%20Shop!5e0!3m2!1ses-419!2spe!4v1695263154154!5m2!1ses-419!2spe" width="100%" height="400vh" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
-    </section> 
+    </section>
 
     <hr class="line-footer">
     <footer id="footer">
@@ -253,4 +256,5 @@
     <script src="js/script.js"></script>
     <script src="js/carrusel.js"></script>
 </body>
+
 </html>

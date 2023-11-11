@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>aPETito Pet Shop</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
     <link rel="icon" href="imgs/logopet.png" type="image/x-icon">
 
     <style>
@@ -34,6 +35,59 @@
         </nav>
     </section>
 
+    <main>
+        <h2 class="subtituloAdmin">VENTAS</h2>
+        <div class="adminVentas">
+            <form>
+                <table class="minimalistBlack">
+                    <thead>
+                        <tr>
+                            <th>ID VENTA</th>
+                            <th>NOMBRE DEL CLIENTE</th>
+                            <th>PRODUCTOS</th>
+                            <th>SUBOTAL (X CLIENTE)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+        <h2 class="subtituloAdmin">MODIFICAR PRODUCTOS</h2>
+        <div class="modProductos">
+            <form method="post">
+                <table class="minimalistBlack">
+                    <thead>
+                        <tr>
+                            <th>ID PRODUCTO</th>
+                            <th>NOMBRE DEL PRODUCTO</th>
+                            <th>MODIFICAR NOMBRE</th>
+                            <th>MODIFICAR PRECIO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+    </main>
 
     <!---->
     <hr class="line-footer">
