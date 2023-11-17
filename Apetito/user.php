@@ -36,8 +36,8 @@ if (empty($array2) && isset($_SESSION["txtEmail"])) {
     <title>aPETito Pet Shop</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/user.css">
     <link rel="icon" href="imgs/logopet.png" type="image/x-icon">
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;400;500;800;900&display=swap');
     </style>
@@ -58,95 +58,41 @@ if (empty($array2) && isset($_SESSION["txtEmail"])) {
                 <li><a href="servicios.php">Baño de mascotas</a></li>
                 <li><a href="index.php#sobre-nosotros">Nosotros</a></li>
                 <li><a href="index.php#encuentranos">Encuentranos</a></li>
-                <?php if(isset($_SESSION["txtEmail"])){ ?>
+                <?php if (isset($_SESSION["txtEmail"])) { ?>
                     <li><a href="user.php"><img src="imgs/login.png" alt=""></a></li>
-                <?php }else{ ?>
+                <?php } else { ?>
                     <li><a href="login.php"><img src="imgs/login.png" alt=""></a></li>
-                <?php }?>
+                <?php } ?>
                 <li><a href="carrito.php"><img src="imgs/shopcar.png" alt=""></a></li>
             </ul>
         </nav>
     </section>
+    <!--CONTENIDO USUARIO-->
+    <?php if (isset($_SESSION["txtEmail"])) { ?>
+        <!--<div class="tituloUser">
+            <h1>¡Hola</h1>
+        </div>-->
+        <div class="containerUser">
+            <?php foreach ($usuario as $usuarios) { ?>
+                <h1>¡Hola,
+                    <?php
+                    echo $usuarios['Nombre'];; ?>
+                    !</h1>
+                <h2 style="color:brown">Informacion Personal</h2>
+                <h3>Correo:
+                    <?php
+                    echo $usuarios['Correo'];; ?>
+                </h3>
+                <h3>Teléfono:
+                    <?php
+                    echo $usuarios['Telefono'];; ?>
+                </h3>
+                <h3>
 
-    <!--
-    <main>
-        <h2 class="subtituloAdmin">VENTAS</h2>
-        <div class="adminVentas">
-            <form>
-                <table class="minimalistBlack">
-                    <thead>
-                        <tr>
-                            <th>ID VENTA</th>
-                            <th>NOMBRE DEL CLIENTE</th>
-                            <th>PRODUCTOS</th>
-                            <th>SUBOTAL (X CLIENTE)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                    </tr>
-                </table>
-            </form>
-
-        </div>
-
-        <h2 class="subtituloAdmin">MODIFICAR PRODUCTOS</h2>
-        <div class="modProductos">
+                </h3>
+            <?php } ?>
             <form method="post">
-                <table class="minimalistBlack">
-                    <thead>
-                        <tr>
-                            <th>ID PRODUCTO</th>
-                            <th>NOMBRE DEL PRODUCTO</th>
-                            <th>MODIFICAR NOMBRE</th>
-                            <th>MODIFICAR PRECIO</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                    </tr>
-                </table>
-            </form>
-
-        </div>
-    </main>
-    -->
-    <?php if(isset($_SESSION["txtEmail"])){ ?>
-        <div class="uno">
-            <h1>Mi Cuenta</h1>
-        </div>
-        <div class="dos">
-        <?php foreach ($usuario as $usuarios) { ?>
-            <h2>Nombre de usuario: 
-                <?php  
-                    echo $usuarios['Nombre'];
-                ;?>
-            </h2>
-            <h2>Correo: 
-                <?php  
-                    echo $usuarios['Correo'];
-                ;?>
-            </h2>
-            <h2>Teléfono: 
-                <?php  
-                    echo $usuarios['Telefono'];
-                ;?>
-            </h2>
-        <?php } ?>
-            <form method="post">
-                <button type="submit" name="cerrar" class="btnAgregarCarrito1">Cerrar Sesión</button>
+                <button type="submit" name="cerrar" class="btnCerrarSesion">Cerrar Sesión</button>
             </form>
         </div>
     <?php } ?>
@@ -163,7 +109,8 @@ if (empty($array2) && isset($_SESSION["txtEmail"])) {
         </div>
         <div class="ubicacion">
             <h4>UBICANOS</h4>
-            <a href="https://maps.app.goo.gl/njPn3YR1Kv2Br38o8" target="_blank"><img src="imgs/ubi.png" alt="">Av. Mateo Pumacahua Villa EL Salvador 15842</a>
+            <a href="https://maps.app.goo.gl/njPn3YR1Kv2Br38o8" target="_blank"><img src="imgs/ubi.png" alt="">Av. Mateo
+                Pumacahua Villa EL Salvador 15842</a>
         </div>
         <div class="horario">
             <h4>HORARIOS</h4>
