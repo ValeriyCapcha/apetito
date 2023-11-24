@@ -25,6 +25,7 @@
 
 .btn-left,
 .btn-right {
+    color: red;
     display: flex;
     position: absolute;
     top: 50%;

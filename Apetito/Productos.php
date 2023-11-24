@@ -200,40 +200,48 @@ $carrito = $Con->IdProducto($array2);
         </div>
         <div class="dos">
             <form method="POST">
-                <h2>Categorías</h2>
-                <input type="radio" id="perro" name="txtAnimales" value="Perro">
-                <label for="perro">Perro</label>
-                <br>
-                <input type="radio" id="gato" name="txtAnimales" value="Gato">
-                <label for="gato">Gato</label>
-                <br>
-                <input type="radio" id="otros" name="txtAnimales" value="Otros">
-                <label for="otros">Otros</label>
-                <hr>
-                <h2>Productos</h2>
-                <input type="radio" id="comida" name="txtProductos" value="Comida">
-                <label for="comida">Comida</label>
-                <br>
-                <input type="radio" id="juguetes" name="txtProductos" value="Juguetes">
-                <label for="juguetes">Juguetes</label>
-                <br>
-                <input type="radio" id="higiene" name="txtProductos" value="Higiene">
-                <label for="higiene">Higiene</label>
-                <br>
-                <input type="radio" id="ropa" name="txtProductos" value="Ropa">
-                <label for="ropa">Ropa</label>
-                <br>
-                <input type="radio" id="otrosp" name="txtProductos" value="Otros">
-                <label for="otrosp">Otros</label>
-                <hr>
-                <h2>Precio</h2>
-                <input type="radio" id="mayor" name="txtPrecios" value="DESC">
-                <label for="mayor">De mayor a menor</label>
-                <br>
-                <input type="radio" id="menor" name="txtPrecios" value="ASC">
-                <label for="menor">De menor a mayor</label>
-                <div class="centrar">
-                    <button type="submit" name="Filtro" class="btnFiltrar">Filtrar</button>
+                <div class="contenedorFormulario">
+                    <div class="FUno">
+                        <h2>Categorías</h2>
+                        <input type="radio" id="perro" name="txtAnimales" value="Perro">
+                        <label for="perro">Perro</label>
+                        <br>
+                        <input type="radio" id="gato" name="txtAnimales" value="Gato">
+                        <label for="gato">Gato</label>
+                        <br>
+                        <input type="radio" id="otros" name="txtAnimales" value="Otros">
+                        <label for="otros">Otros</label>
+                        <hr>
+                    </div>
+                    <div class="FDos">
+                        <h2>Productos</h2>
+                        <input type="radio" id="comida" name="txtProductos" value="Comida">
+                        <label for="comida">Comida</label>
+                        <br>
+                        <input type="radio" id="juguetes" name="txtProductos" value="Juguetes">
+                        <label for="juguetes">Juguetes</label>
+                        <br>
+                        <input type="radio" id="higiene" name="txtProductos" value="Higiene">
+                        <label for="higiene">Higiene</label>
+                        <br>
+                        <input type="radio" id="ropa" name="txtProductos" value="Ropa">
+                        <label for="ropa">Ropa</label>
+                        <br>
+                        <input type="radio" id="otrosp" name="txtProductos" value="Otros">
+                        <label for="otrosp">Otros</label>
+                        <hr>
+                    </div>
+                    <div class="FTres">
+                        <h2>Precio</h2>
+                        <input type="radio" id="mayor" name="txtPrecios" value="DESC">
+                        <label for="mayor">De mayor a menor</label>
+                        <br>
+                        <input type="radio" id="menor" name="txtPrecios" value="ASC">
+                        <label for="menor">De menor a mayor</label>
+                        <div class="centrar">
+                            <button type="submit" name="Filtro" class="btnFiltrar">Filtrar</button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
