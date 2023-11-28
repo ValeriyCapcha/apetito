@@ -72,11 +72,11 @@ $carrito = $Con->IdProducto($array2);
                     <li><a href="servicios.php">Baño de mascotas</a></li>
                     <li><a href="index.php#sobre-nosotros">Nosotros</a></li>
                     <li><a href="index.php#encuentranos">Encuentranos</a></li>
-                    <?php if(isset($_SESSION["txtEmail"])){ ?>
+                    <?php if (isset($_SESSION["txtEmail"])) { ?>
                         <li><a href="user.php"><img src="imgs/login.png" alt=""></a></li>
-                    <?php }else{ ?>
+                    <?php } else { ?>
                         <li><a href="login.php"><img src="imgs/login.png" alt=""></a></li>
-                    <?php }?>
+                    <?php } ?>
                     <li><a href="carrito.php"><img src="imgs/shopcar.png" alt=""></a></li>
                 </ul>
             </nav>
@@ -97,105 +97,105 @@ $carrito = $Con->IdProducto($array2);
         </div>-->
 
 
-        <h1>¡OFERTAS!</h1>
+            <h1>¡OFERTAS!</h1>
 
-        <section id="oferta1">
-            <div class="container-carousel">
-                <div class="carruseles" id="slider">
-                    <?php
-                    foreach ($ofertas as $producto) { ?>
-                        <section class="slider-section">
-                            <div class="ofer">
-                                <img src="<?php echo $producto['IMAGEN']; ?>" alt="">
-                                <div class="des">
-                                    <span><?php echo $producto['CATEGORIA']; ?></span>
-                                    <h5><?php echo $producto['NOMBRES']; ?></h5>
-                                    <div class="precio-ofer">
-                                        <h6>s/<?php echo $producto['PRECIO']; ?></h6>
-                                        <h4>s/<?php echo $producto['PRECIO'] - $producto['Descuento']; ?></h4>
+            <section id="oferta1">
+                <div class="container-carousel">
+                    <div class="carruseles" id="slider">
+                        <?php
+                        foreach ($ofertas as $producto) { ?>
+                            <section class="slider-section">
+                                <div class="ofer">
+                                    <img src="<?php echo $producto['IMAGEN']; ?>" alt="">
+                                    <div class="des">
+                                        <span><?php echo $producto['CATEGORIA']; ?></span>
+                                        <h5><?php echo $producto['NOMBRES']; ?></h5>
+                                        <div class="precio-ofer">
+                                            <h6>s/<?php echo $producto['PRECIO']; ?></h6>
+                                            <h4>s/<?php echo $producto['PRECIO'] - $producto['Descuento']; ?></h4>
+                                        </div>
+                                    </div>
+                                    <div class="centrar">
+                                        <form method="post">
+                                            <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO']; ?>">
+                                            <?php
+                                            if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])) {
+                                                echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
+                                            } else {
+                                                echo '<button type="submit" name="agregar" class="btnAgregarCarrito1">Agregar al Carrito</button>';
+                                            }
+                                            ?>
+                                        </form>
                                     </div>
                                 </div>
-                                <div class="centrar">
-                                    <form method="post">
-                                        <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO']; ?>">
-                                        <?php
-                                        if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])) {
-                                            echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
-                                        } else {
-                                            echo '<button type="submit" name="agregar" class="btnAgregarCarrito1">Agregar al Carrito</button>';
-                                        }
-                                        ?>
-                                    </form>
-                                </div>
-                            </div>
-                        </section>
-                    <?php } ?>
-                    <?php
-                    foreach ($ofertas as $producto) { ?>
-                        <section class="slider-section">
-                            <div class="ofer">
-                                <img src="<?php echo $producto['IMAGEN']; ?>" alt="">
-                                <div class="des">
-                                    <span><?php echo $producto['CATEGORIA']; ?></span>
-                                    <h5><?php echo $producto['NOMBRES']; ?></h5>
-                                    <div class="precio-ofer">
-                                        <h6>s/<?php echo $producto['PRECIO']; ?></h6>
-                                        <h4>s/<?php echo $producto['PRECIO'] - $producto['Descuento']; ?></h4>
+                            </section>
+                        <?php } ?>
+                        <?php
+                        foreach ($ofertas as $producto) { ?>
+                            <section class="slider-section">
+                                <div class="ofer">
+                                    <img src="<?php echo $producto['IMAGEN']; ?>" alt="">
+                                    <div class="des">
+                                        <span><?php echo $producto['CATEGORIA']; ?></span>
+                                        <h5><?php echo $producto['NOMBRES']; ?></h5>
+                                        <div class="precio-ofer">
+                                            <h6>s/<?php echo $producto['PRECIO']; ?></h6>
+                                            <h4>s/<?php echo $producto['PRECIO'] - $producto['Descuento']; ?></h4>
+                                        </div>
+                                    </div>
+                                    <div class="centrar">
+                                        <form method="post">
+                                            <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO']; ?>">
+                                            <?php
+                                            if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])) {
+                                                echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
+                                            } else {
+                                                echo '<button type="submit" name="agregar" class="btnAgregarCarrito1">Agregar al Carrito</button>';
+                                            }
+                                            ?>
+                                        </form>
                                     </div>
                                 </div>
-                                <div class="centrar">
-                                    <form method="post">
-                                        <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO']; ?>">
-                                        <?php
-                                        if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])) {
-                                            echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
-                                        } else {
-                                            echo '<button type="submit" name="agregar" class="btnAgregarCarrito1">Agregar al Carrito</button>';
-                                        }
-                                        ?>
-                                    </form>
-                                </div>
+                            </section>
+                        <?php } ?>
+                    </div>
+                    <div class="btn-left">&#60</div>
+                    <div class="btn-right">&#62</div>
+                </div>
+            </section>
+            <br>
+            <br>
+
+            <br>
+
+            <section id="producto">
+                <h2>PRODUCTOS</h2>
+                <div class="prod-container">
+                    <?php foreach ($productos as $producto) { ?>
+                        <div class="prod">
+                            <img src="<?php echo $producto['IMAGEN']; ?>" alt="">
+                            <div class="des">
+                                <span><b><?php echo $producto['CATEGORIA']; ?></b></span>
+                                <h5><?php echo $producto['NOMBRES']; ?></h5>
+                                <h4>S/<?php echo $producto['PRECIO']; ?></h4>
                             </div>
-                        </section>
+                            <div class="centrar">
+                                <form method="post">
+                                    <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO']; ?>">
+                                    <?php
+                                    if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])) {
+                                        echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
+                                    } else {
+                                        echo '<button type="submit" name="agregar" class="btnAgregarCarrito1">Agregar al Carrito</button>';
+                                    }
+                                    ?>
+                                </form>
+                            </div>
+                            <!-- <a href="#" class="btnAgregarCarrito1">Agregar al Carrito</a> -->
+                        </div>
                     <?php } ?>
                 </div>
-                <div class="btn-left">&#60</div>
-                <div class="btn-right">&#62</div>
-            </div>
-        </section>
-        <br>
-        <br>
-
-        <br>
-
-        <section id="producto">
-            <h2>PRODUCTOS</h2>
-            <div class="prod-container">
-                <?php foreach ($productos as $producto) { ?>
-                    <div class="prod">
-                        <img src="<?php echo $producto['IMAGEN']; ?>" alt="">
-                        <div class="des">
-                            <span><b><?php echo $producto['CATEGORIA']; ?></b></span>
-                            <h5><?php echo $producto['NOMBRES']; ?></h5>
-                            <h4>S/<?php echo $producto['PRECIO']; ?></h4>
-                        </div>
-                        <div class="centrar">
-                            <form method="post">
-                                <input type="hidden" name="txtProducto" value="<?php echo $producto['ID_PRODUCTO']; ?>">
-                                <?php
-                                if (in_array($producto['ID_PRODUCTO'], $carrito ?? [])) {
-                                    echo '<button type="submit" disabled class="btnAgregarCarrito1">En el carrito</button>';
-                                } else {
-                                    echo '<button type="submit" name="agregar" class="btnAgregarCarrito1">Agregar al Carrito</button>';
-                                }
-                                ?>
-                            </form>
-                        </div>
-                        <!-- <a href="#" class="btnAgregarCarrito1">Agregar al Carrito</a> -->
-                    </div>
-                <?php } ?>
-            </div>
-        </section>
+            </section>
 
         </div>
         <div class="dos">
@@ -239,7 +239,7 @@ $carrito = $Con->IdProducto($array2);
                         <input type="radio" id="menor" name="txtPrecios" value="ASC">
                         <label for="menor">De menor a mayor</label>
                         <div class="centrar">
-                            <button type="submit" name="Filtro" class="btnFiltrar">Filtrar</button>
+                            <button type="submit" name="Filtro" class="btnFiltrar" style="background-color: #F1BD0E;">Filtrar</button>
                         </div>
                     </div>
                 </div>
@@ -262,7 +262,7 @@ $carrito = $Con->IdProducto($array2);
         <div class="horario">
             <h4>HORARIOS</h4>
             <a href=""><img src="imgs/reloj.png" alt="">Lunes - Sábado 9am - 6pm</a>
-            <a href="" class="libro-reclamaciones-logo"><img src="imgs/libro-reclamaciones.png" alt=""></a>
+            <a href="reclamos.php" class="libro-reclamaciones-logo"><img src="imgs/libro-reclamaciones.png" alt=""></a>
         </div>
     </footer>
     <script src="js/script.js"></script>

@@ -115,7 +115,7 @@ if (empty($array2) && isset($_SESSION["txtEmail"])) {
         <div class="horario">
             <h4>HORARIOS</h4>
             <a href=""><img src="imgs/reloj.png" alt="">Lunes - Sábado 9am - 6pm</a>
-            <a href="" class="libro-reclamaciones-logo"><img src="imgs/libro-reclamaciones.png" alt=""></a>
+            <a href="reclamos.php" class="libro-reclamaciones-logo"><img src="imgs/libro-reclamaciones.png" alt=""></a>
         </div>
     </footer>
 

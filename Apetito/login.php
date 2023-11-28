@@ -65,7 +65,7 @@
                     <h1>Iniciar Sesión</h1>
                     <input type="email" name="txtEmail" placeholder="Correo"><!--name:txtEmail-->
                     <input type="password" name="txtPassword" placeholder="Contraseña"><!--txtPassword-->
-                    <a href="#">olvidaste tu contraseña?</a>
+                    <!--<a href="#">olvidaste tu contraseña?</a>-->
                     <input type="submit" class="button" name="btnIngresar" value="Iniciar Sesión">
                     <!--<div class="sesionGoogle">
                         <a href=""><img src="imgs/ico_google.png" alt=""></a>
@@ -105,7 +105,7 @@
         <div class="horario">
             <h4>HORARIOS</h4>
             <a href=""><img src="imgs/reloj.png" alt="">Lunes - Sábado 9am - 6pm</a>
-            <a href="" class="libro-reclamaciones-logo"><img src="imgs/libro-reclamaciones.png" alt=""></a>
+            <a href="reclamos.php" class="libro-reclamaciones-logo"><img src="imgs/libro-reclamaciones.png" alt=""></a>
         </div>
     </footer>
 

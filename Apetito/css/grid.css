@@ -99,7 +99,7 @@ h1{
     width: 50%;
     border-radius: 10px;
     border: none;
-    background-color: yellow;
+    background-color: #F1BD0E;
     font-size: large;
     transition: transform 80ms ease-in;
 }

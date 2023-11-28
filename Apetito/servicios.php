@@ -10,17 +10,16 @@ if (isset($_POST['nameh'])) {
     $Tipo_Bano = $_POST['banho'];
     $Fecha_Cita = $_POST['fecha'];
     $Id_Hora_Cita = $_POST['hora'];
-    
+
     $insertar = "INSERT INTO citas_servicios(NOMBRE_APELLIDO_CLIENTE, NOMBRE_MASCOTA, Email, Telefono_Cita, Raza_Mascota, Tipo_Bano, Fecha_Cita, Id_Hora_Cita) VALUES ('$NOMBRE_APELLIDO_CLIENTE', '$NOMBRE_MASCOTA', '$Email', '$Telefono_Cita', '$Raza_Mascota', '$Tipo_Bano', '$Fecha_Cita', '$Id_Hora_Cita' )";
 
     $sql = $connn->query($insertar);
 
     if ($sql) {
-        
+
         echo "<script> alert('Cita agendada con exito');
         </script>";
-
-    }else{
+    } else {
         echo "<script> alert('Cita no agendada');
         </script>";
     }
@@ -28,6 +27,7 @@ if (isset($_POST['nameh'])) {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,10 +39,11 @@ if (isset($_POST['nameh'])) {
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;400;500;800;900&display=swap');
     </style>
 </head>
+
 <body>
     <section id="header">
         <a href="index.php"><img src="imgs/logopet.png" alt="" class="logo"></a>
-        
+
         <button class="lista">
             <img src="imgs/list.svg">
         </button>
@@ -63,44 +64,44 @@ if (isset($_POST['nameh'])) {
 
     <div class="fondo">
         <section id="Bano">
-        <div class="container-servicios">
-            <div class="Informacion">
-                <h2>Baño para mascotas</h2>
-                <h3>Desde S/.20</h3>
-                <p>Ingresa tus datos y selecciona un horario, en breve se le confirmara la fecha.</p>
-            </div>
-            <div class="Formulario">
-                <h2>Datos</h2>
-                <form method="POST" autocomplete="on" class="Form">
-                    <input type="text" name="nameh" placeholder="Nombres y Apellidos">
-                    <input type="text" id="NOMBRE_MASCOTA" name="namem" placeholder="Nombre de la Mascota">
-                    
-                    <input type="email" id="Email" name="email" placeholder="Correo">
-                    <input type="tel" id="Telefono_Cita" name="phone" placeholder="Celular" pattern="[0-9]{3}[0-9]{3}[0-9]{3}">
-                    
-                    <input type="text" id="Raza_Mascota" name="raza" placeholder="Raza">
-                    <select id="Tipo_Bano" name="banho">
-                        <option value="1">Baño cosmético</option>
-                        <option value="2">Baño antipulgas</option>
-                        <option value="3">Baño medicado</option>
-                        <option value="4">Baño antisárnico</option>
-                        <option value="5">Baño y corte de pelo</option>
-                    </select>
-                    
-                    <input type="date" id="Fecha_Cita" name="fecha" title="Fecha">
-                    <select id="Id_Hora_Cita" name="hora" title="Horario">
-                        <option value="1">9:00-10:00</option>
-                        <option value="2">10:00-12:00</option>
-                        <option value="3">2:00-3:00</option>
-                        <option value="4">3:00-4:00</option>
-                        <option value="5">4:00-5:00</option>
-                    </select>
-                    <br><br>
-                    <input type="submit" value="INGRESAR" class="Boton">
+            <div class="container-servicios">
+                <div class="Informacion">
+                    <h2>Baño para perros</h2>
+                    <h3>Desde S/.20</h3>
+                    <p>Ingresa tus datos y selecciona un horario, en breve se le confirmara la fecha.</p>
+                </div>
+                <div class="Formulario">
+                    <h2>Datos</h2>
+                    <form method="POST" autocomplete="on" class="Form">
+                        <input type="text" name="nameh" placeholder="Nombres y Apellidos">
+                        <input type="text" id="NOMBRE_MASCOTA" name="namem" placeholder="Nombre de la Mascota">
 
-                </form>
+                        <input type="email" id="Email" name="email" placeholder="Correo">
+                        <input type="tel" id="Telefono_Cita" name="phone" placeholder="Celular" pattern="[0-9]{3}[0-9]{3}[0-9]{3}">
+
+                        <input type="text" id="Raza_Mascota" name="raza" placeholder="Raza">
+                        <select id="Tipo_Bano" name="banho">
+                            <option value="1">Baño cosmético</option>
+                            <option value="2">Baño antipulgas</option>
+                            <option value="3">Baño medicado</option>
+                            <option value="4">Baño antisárnico</option>
+                            <option value="5">Baño y corte de pelo</option>
+                        </select>
+
+                        <input type="date" id="Fecha_Cita" name="fecha" title="Fecha">
+                        <select id="Id_Hora_Cita" name="hora" title="Horario">
+                            <option value="1">9:00-10:00</option>
+                            <option value="2">10:00-12:00</option>
+                            <option value="3">2:00-3:00</option>
+                            <option value="4">3:00-4:00</option>
+                            <option value="5">4:00-5:00</option>
+                        </select>
+                        <br><br>
+                        <input type="submit" value="INGRESAR" class="Boton">
+
+                    </form>
+                </div>
             </div>
-        </div>
         </section>
     </div>
 
@@ -119,10 +120,11 @@ if (isset($_POST['nameh'])) {
         <div class="horario">
             <h4>HORARIOS</h4>
             <a href=""><img src="imgs/reloj.png" alt="">Lunes - Sábado 9am - 6pm</a>
-            <a href="" class="libro-reclamaciones-logo"><img src="imgs/libro-reclamaciones.png" alt=""></a>
+            <a href="reclamos.php" class="libro-reclamaciones-logo"><img src="imgs/libro-reclamaciones.png" alt=""></a>
         </div>
     </footer>
-    
+
     <script src="js/script.js"></script>
 </body>
+
 </html>
