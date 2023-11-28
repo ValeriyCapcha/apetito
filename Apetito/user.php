@@ -69,9 +69,6 @@ if (empty($array2) && isset($_SESSION["txtEmail"])) {
     </section>
     <!--CONTENIDO USUARIO-->
     <?php if (isset($_SESSION["txtEmail"])) { ?>
-        <!--<div class="tituloUser">
-            <h1>¡Hola</h1>
-        </div>-->
         <div class="containerUser">
             <?php foreach ($usuario as $usuarios) { ?>
                 <h1>¡Hola,
@@ -91,6 +88,12 @@ if (empty($array2) && isset($_SESSION["txtEmail"])) {
 
                 </h3>
             <?php } ?>
+            <form method="post" style="border: 2px solid black; padding: 10px; border-radius: 10px; margin:auto;">
+                <h3>Actualizar contraseña</h3>
+                <input type="text" placeholder=" Ingrese la contraseña actual" name="contraActual" style="border-radius: 10px; min-height:40px; min-width:250px; margin-bottom:10px;"></input><br>
+                <input type="text" placeholder=" Ingrese la contraseña nueva" name="contraNueva" style="border-radius: 10px; min-height:40px; min-width:250px;"></input><br>
+                <button type="submit" name="cambiarContrasenia" class="btnCerrarSesion" style="min-height:40px; min-width:250px; background-color:greenyellow;">Cambiar Contraseña</button>
+            </form>
             <form method="post">
                 <button type="submit" name="cerrar" class="btnCerrarSesion">Cerrar Sesión</button>
             </form>
