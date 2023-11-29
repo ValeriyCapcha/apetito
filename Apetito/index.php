@@ -59,8 +59,8 @@ $carrito = $Con->IdProducto($array2);
                 <li><a class="active" href="index.php">Ofertas</a></li>
                 <li><a href="Productos.php">Productos</a></li>
                 <li><a href="servicios.php">Baño de mascotas</a></li>
-                <li><a href="index.php#sobre-nosotros">Nosotros</a></li>
-                <li><a href="index.php#encuentranos">Encuentranos</a></li>
+                <li><a href="index.php #sobre-nosotros">Nosotros</a></li>
+                <li><a href="index.php #encuentranos">Encuentranos</a></li>
                 <?php if (isset($_SESSION["txtEmail"])) { ?>
                     <li><a href="user.php"><img src="imgs/login.png" alt=""></a></li>
                 <?php } else { ?>

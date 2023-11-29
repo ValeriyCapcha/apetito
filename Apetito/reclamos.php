@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>aPETito Pet Shop</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/reclamos.css">
     <link rel="icon" href="imgs/logopet.png" type="image/x-icon">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;400;500;800;900&display=swap');
@@ -26,20 +26,20 @@
     <section class="containerF" style="margin: 3% 5% 3% 5%;">
         <h2>Libro de Reclamaciones</h2>
         <h3>¿Qué es un reclamo?</h3>
-        <p>Es la forma de expresar tu disconformidad con la experiencia que tuviste a la hora de comprar, vender, cobrar, pagar, enviar dinero o usar
+        <p>Es la forma de expresar tu disconformidad con la experiencia que tuviste a la hora de comprar, pagar o usar
             la configuración de tu cuenta a través de nuestra página.</p>
-        <hr style="margin-bottom: 3%;">
-        <form method="post">
+        <hr style="margin: 2% 0;">
+        <form method="post" style="padding: 0px;">
             <?php
             include("bd/conn.php");
             include("bd/controlador_reclamos.php");
             ?>
             <label for="">Nombre de Usuario</label>
-            <input type="text" id="correoR" name="usuarioR" placeholder="Ejm. Estefano">
+            <input type="text" id="correoR" name="usuarioR" placeholder=" Ejm. Estefano">
             <label for="">Correo electrónico</label>
-            <input type="text" id="correoR" name="correoR" placeholder="Ejm. usuario@gmail.com">
+            <input type="text" id="correoR" name="correoR" placeholder=" Ejm. usuario@gmail.com">
             <label for="">Describa su reclamo</label>
-            <textarea name=" reclamo" id="reclamo" cols="50" rows="10" placeholder="Desahoguese :c" required style="min-width:100%;"></textarea>
+            <textarea name=" reclamo" id="reclamo" cols="50" rows="10" placeholder=" Desahoguese :c" required style="min-width:100%; resize:none; border-radius: 8px;"></textarea>
             <input type="submit" class="button" name="btnEnviarReclamo" value="Enviar"></input>
         </form>
 

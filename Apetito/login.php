@@ -80,7 +80,7 @@
                         <button class="btn" id="iniciar">Iniciar Sesión</button>
                     </div>
                     <div class="overlay-panel overlay-derecho">
-                        <h1>Hola!</h1>
+                        <h1>Hola entusiasta de los animales!</h1>
                         <p>Registra tus datos personales y ofrecele una mejor experiencia a tu mascota.</p>
                         <button class="btn" id="regist">Registrarse</button>
                     </div>

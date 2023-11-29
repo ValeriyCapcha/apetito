@@ -80,22 +80,25 @@ if (empty($array2) && isset($_SESSION["txtEmail"])) {
                     <?php
                     echo $usuarios['Correo'];; ?>
                 </h3>
-                <h3>Teléfono:
+                <h3 style="margin-bottom: 20px;">Teléfono:
                     <?php
                     echo $usuarios['Telefono'];; ?>
                 </h3>
-                <h3>
-
-                </h3>
             <?php } ?>
-            <form method="post" style="border: 2px solid black; padding: 10px; border-radius: 10px; margin:auto;">
-                <h3>Actualizar contraseña</h3>
-                <input type="text" placeholder=" Ingrese la contraseña actual" name="contraActual" style="border-radius: 10px; min-height:40px; min-width:250px; margin-bottom:10px;"></input><br>
-                <input type="text" placeholder=" Ingrese la contraseña nueva" name="contraNueva" style="border-radius: 10px; min-height:40px; min-width:250px;"></input><br>
-                <button type="submit" name="cambiarContrasenia" class="btnCerrarSesion" style="min-height:40px; min-width:250px; background-color:greenyellow;">Cambiar Contraseña</button>
-            </form>
+
             <form method="post">
                 <button type="submit" name="cerrar" class="btnCerrarSesion">Cerrar Sesión</button>
+            </form><br>
+
+            <form method="post" style="border: 2px solid black; padding: 10px; border-radius: 10px; margin:auto;">
+                <?php
+                include("bd/conn.php");
+                include("bd/controlador_actualizar_contra.php");
+                ?>
+                <h3 style="margin-bottom: 10px;">Actualizar contraseña</h3>
+                <input type="text" placeholder=" Ingrese la contraseña actual" name="contraActual" style="border-radius: 10px; min-height:40px; min-width:250px; margin-bottom:10px;"></input><br>
+                <input type="text" placeholder=" Ingrese la contraseña nueva" name="contraNueva" style="border-radius: 10px; min-height:40px; min-width:250px;"></input><br>
+                <input type="submit" name="cambiarContra" class="btnCerrarSesion" value="Actualizar" style="min-height:40px; min-width:250px; background-color:greenyellow;"></input>
             </form>
         </div>
     <?php } ?>
