@@ -28,6 +28,16 @@
     background-color: #F1BD0E;
 }
 .tabla{
+    width: 90%;;
+    margin: 0.5em 0.5em 0.5em 1em;
+    padding: 0.5em;
+    text-align: center;
+    background: white;
+    border: 4px solid #000000;
+    border-collapse: collapse;
+}
+.tabla2{
+    width: 50%;;
     margin: 0.5em 0.5em 0.5em 1em;
     padding: 0.5em;
     text-align: center;
@@ -42,4 +52,11 @@
 img{
     width: auto;
     height: 50px;
+}
+.FondoAgregar{
+    background-color: #F1BD0E;
+    border: 4px solid black;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
 }
