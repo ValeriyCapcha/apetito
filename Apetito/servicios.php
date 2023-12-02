@@ -1,6 +1,9 @@
 <?php
 include("bd/conn.php");
+include("bd/conexion.php");
 //Sesión
+session_start();
+$Con = new conexion();
 if (isset($_SESSION["txtEmail"])) {
     $correo = $_SESSION["txtEmail"];
     $usuario = $Con->consultar("SELECT * FROM `usuario` WHERE `usuario`.`Correo` = '$correo'");
