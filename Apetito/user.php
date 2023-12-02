@@ -90,6 +90,9 @@ if (empty($array2) && isset($_SESSION["txtEmail"])) {
                 <button type="submit" name="cerrar" class="btnCerrarSesion">Cerrar Sesión</button>
             </form><br>
 
+            <?php if($usuarios['Correo'] == "Administrador@gmail.com"){
+                include("admin.php");
+            } ?>
             <form method="post" style="border: 2px solid black; padding: 10px; border-radius: 10px; margin:auto;">
                 <?php
                 include("bd/conn.php");
@@ -102,7 +105,6 @@ if (empty($array2) && isset($_SESSION["txtEmail"])) {
             </form>
         </div>
     <?php } ?>
-
 
     <!---->
     <hr class="line-footer">
