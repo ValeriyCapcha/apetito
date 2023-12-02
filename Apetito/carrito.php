@@ -139,6 +139,16 @@ $productos = $Con->consultar("SELECT IMAGEN, NOMBRES, PRECIO, Descuento, id_Carr
                     <span><b>TOTAL A PAGAR</b></span>
                     <p class="texto-rojo" style="font-size: 50px">S/.<?php echo $Subtotal; ?></p>
                 </div>
+                <div class="metodoRecojo" style="margin: 20px 0;">
+                    <form>
+                        <label for="frutas">Selecciona un metodo de recojo:</label>
+                        <select id="frutas" name="frutas">
+                            <option value="manzana">--Elija</option>
+                            <option value="platano">Recojo en tienda</option>
+                            <option value="uva">Delivery</option>
+                        </select>
+                    </form>
+                </div>
                 <a href="../Apetito/assets/succes.html" class="btnAgregarCarrito1">Hacer pedido</a>
             </div>
         </div>
