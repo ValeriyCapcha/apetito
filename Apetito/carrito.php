@@ -149,7 +149,7 @@ $productos = $Con->consultar("SELECT IMAGEN, NOMBRES, PRECIO, Descuento, id_Carr
                         </select>
                     </form>
                 </div>
-                <a href="../Apetito/assets/succes.html" class="btnAgregarCarrito1">Hacer pedido</a>
+                <a href="assets/succes.html" class="btnAgregarCarrito1">Hacer pedido</a>
             </div>
         </div>
     <?php } ?>
