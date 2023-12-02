@@ -74,7 +74,7 @@ $productos = $Con->consultar("SELECT IMAGEN, NOMBRES, PRECIO, Descuento, id_Carr
                 <li><a href="index.php#sobre-nosotros">Nosotros</a></li>
                 <li><a href="index.php#encuentranos">Encuentranos</a></li>
                 <?php if (isset($_SESSION["txtEmail"])) { ?>
-                    <li><a href="user.php"><img src="imgs/login.png" alt=""></a></li>
+                    <li><a href="user.php"><img src="imgs/SesionIniciada.png" alt=""></a></li>
                 <?php } else { ?>
                     <li><a href="login.php"><img src="imgs/login.png" alt=""></a></li>
                 <?php } ?>

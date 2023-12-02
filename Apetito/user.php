@@ -19,12 +19,12 @@ if (isset($_POST['cerrar'])) {
 
 //Saludo solo si el carrito esta vacío, dando a entender que solo se dará la primera vez que uses la página o 
 //la vuelvas a usar luego de comprar algo.
-$array2 = $Con->consultar("SELECT * FROM `carrito` WHERE id_Usuario = $IdUsuario");
+/*$array2 = $Con->consultar("SELECT * FROM `carrito` WHERE id_Usuario = $IdUsuario");
 if (empty($array2) && isset($_SESSION["txtEmail"])) {
     $ObtenerNombre = $Con->Nombre($usuario);
     $nombre = $ObtenerNombre[0];
     echo "<script>alert('Bienvenido " . $nombre . "');</script>";
-}
+}*/
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +59,7 @@ if (empty($array2) && isset($_SESSION["txtEmail"])) {
                 <li><a href="index.php#sobre-nosotros">Nosotros</a></li>
                 <li><a href="index.php#encuentranos">Encuentranos</a></li>
                 <?php if (isset($_SESSION["txtEmail"])) { ?>
-                    <li><a href="user.php"><img src="imgs/login.png" alt=""></a></li>
+                    <li><a class="active" href="user.php"><img src="imgs/SesionIniciada.png" alt=""></a></li>
                 <?php } else { ?>
                     <li><a href="login.php"><img src="imgs/login.png" alt=""></a></li>
                 <?php } ?>

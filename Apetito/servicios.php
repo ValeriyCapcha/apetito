@@ -1,6 +1,12 @@
 <?php
 include("bd/conn.php");
-
+//Sesión
+if (isset($_SESSION["txtEmail"])) {
+    $correo = $_SESSION["txtEmail"];
+    $usuario = $Con->consultar("SELECT * FROM `usuario` WHERE `usuario`.`Correo` = '$correo'");
+    $ObtenerIdUsuario = $Con->IdUsuario($usuario);
+    $IdUsuario = $ObtenerIdUsuario[0];
+}
 if (isset($_POST['nameh'])) {
     $NOMBRE_APELLIDO_CLIENTE = $_POST['nameh'];
     $NOMBRE_MASCOTA = $_POST['namem'];
@@ -55,7 +61,11 @@ if (isset($_POST['nameh'])) {
                 <li><a class="active" href="servicios.php">Baño de mascotas</a></li>
                 <li><a href="index.php#sobre-nosotros">Nosotros</a></li>
                 <li><a href="index.php#encuentranos">Encuentranos</a></li>
-                <li><a href="login.php"><img src="imgs/login.png" alt=""></a></li>
+                <?php if (isset($_SESSION["txtEmail"])) { ?>
+                        <li><a href="user.php"><img src="imgs/SesionIniciada.png" alt=""></a></li>
+                    <?php } else { ?>
+                        <li><a href="login.php"><img src="imgs/login.png" alt=""></a></li>
+                    <?php } ?>
                 <li><a href="carrito.php"><img src="imgs/shopcar.png" alt=""></a></li>
             </ul>
         </nav>

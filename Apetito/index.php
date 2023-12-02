@@ -62,7 +62,7 @@ $carrito = $Con->IdProducto($array2);
                 <li><a href="index.php #sobre-nosotros">Nosotros</a></li>
                 <li><a href="index.php #encuentranos">Encuentranos</a></li>
                 <?php if (isset($_SESSION["txtEmail"])) { ?>
-                    <li><a href="user.php"><img src="imgs/login.png" alt=""></a></li>
+                    <li><a href="user.php"><img src="imgs/SesionIniciada.png" alt=""></a></li>
                 <?php } else { ?>
                     <li><a href="login.php"><img src="imgs/login.png" alt=""></a></li>
                 <?php } ?>
@@ -187,8 +187,8 @@ $carrito = $Con->IdProducto($array2);
 
     <section id="Servicios">
         <h2>Nuestros Servicios</h2>
-        <a href="servicios.php">
             <div class="animales-container">
+                <a href="servicios.php">
                 <div class="animales">
                     <img src="imgs/servicios.jpg">
                     <div class="Texto">
@@ -215,8 +215,8 @@ $carrito = $Con->IdProducto($array2);
                         </p>
                     </div>
                 </div>
+                </a>
             </div>
-        </a>
     </section>
     <section id="sobre-nosotros">
         <img src="imgs/Tienda.jpeg" alt="">
